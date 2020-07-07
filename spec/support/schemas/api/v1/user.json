@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+      {
+          "id": 19,
+          "user_name": "lynn",
+          "password_digest": "$2a$04$jZeCyamJ3Alxlb5xTsWWL.OT7z8ZThgzFEeKjEzB9IvlABfPRYxFC",
+          "created_at": "2020-07-07T08:56:57.694Z",
+          "updated_at": "2020-07-07T08:56:57.694Z"
+      }
+  ],
+  "required": [
+      "id",
+      "user_name",
+      "password_digest",
+      "created_at",
+      "updated_at"
+  ],
+  "additionalProperties": true,
+  "properties": {
+      "id": {
+          "$id": "#/properties/id",
+          "type": "integer",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+              19
+          ]
+      },
+      "user_name": {
+          "$id": "#/properties/user_name",
+          "type": "string",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "lynn"
+          ]
+      },
+      "password_digest": {
+          "$id": "#/properties/password_digest",
+          "type": "string",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "$2a$04$jZeCyamJ3Alxlb5xTsWWL.OT7z8ZThgzFEeKjEzB9IvlABfPRYxFC"
+          ]
+      },
+      "created_at": {
+          "$id": "#/properties/created_at",
+          "type": "string",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "2020-07-07T08:56:57.694Z"
+          ]
+      },
+      "updated_at": {
+          "$id": "#/properties/updated_at",
+          "type": "string",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+              "2020-07-07T08:56:57.694Z"
+          ]
+      }
+  }
+}
