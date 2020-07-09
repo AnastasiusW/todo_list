@@ -1,5 +1,5 @@
 class Api::V1::AuthenticationController < ApplicationController
-  #skip_before_action :authorize_request, only: :create
+  skip_before_action :authorize_request, only: :create
   def create
     user= User.find_by(user_name: user_params[:user_name])
     if user&.authenticate(user_params[:password])

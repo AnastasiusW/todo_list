@@ -20,6 +20,7 @@ RSpec.describe "Api::V1::Users", type: :request do
     context 'when input invalid params for register new user' do
       let(:user_params) {{user_name: '', password:'password', password_confirmation:'wrong'}}
       it 'sign up user with empty user_name and wrong password_confirmation' do
+        expect(response.body).to match_json_schema('error')
 
         expect(response).to have_http_status(:unprocessable_entity)
         expect(User.count).to eq(0)

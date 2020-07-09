@@ -16,6 +16,11 @@ RSpec.describe User, type: :model do
       it { expect(user).to validate_uniqueness_of(:user_name) }
     end
 
+  end
+
+  describe 'with check associations' do
+
+    it { is_expected.to have_many(:projects).dependent(:destroy) }
 
   end
 end
