@@ -4,3 +4,7 @@ en:
 
   errors:
     login: Invalid login
+    authorize_fail: Authorize was failed
+    projects:
+      project_exist: The project with such name does already exist
+      project_not_found: Project not found

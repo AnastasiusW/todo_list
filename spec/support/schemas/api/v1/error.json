@@ -8,11 +8,7 @@
   "examples": [
       {
           "errors": [
-              [
-                  "Password confirmation doesn't match Password",
-                  "User name can't be blank",
-                  "User name is too short (minimum is 3 characters)"
-              ]
+              "Name can't be blank"
           ]
       }
   ],
@@ -29,59 +25,18 @@
           "default": [],
           "examples": [
               [
-                  [
-                      "Password confirmation doesn't match Password",
-                      "User name can't be blank",
-                      "User name is too short (minimum is 3 characters)"
-                  ]
+                  "Name can't be blank"
               ]
           ],
           "additionalItems": true,
           "items": {
               "$id": "#/properties/errors/items/0",
-              "type": "array",
+              "type": "string",
               "title": "The first items schema",
               "description": "An explanation about the purpose of this instance.",
-              "default": [],
+              "default": "",
               "examples": [
-                  [
-                      "Password confirmation doesn't match Password",
-                      "User name can't be blank",
-                      "User name is too short (minimum is 3 characters)"
-                  ]
-              ],
-              "additionalItems": true,
-              "items": [
-                  {
-                      "$id": "#/properties/errors/items/0/items/0",
-                      "type": "string",
-                      "title": "The first items schema",
-                      "description": "An explanation about the purpose of this instance.",
-                      "default": "",
-                      "examples": [
-                          "Password confirmation doesn't match Password"
-                      ]
-                  },
-                  {
-                      "$id": "#/properties/errors/items/0/items/1",
-                      "type": "string",
-                      "title": "The second items schema",
-                      "description": "An explanation about the purpose of this instance.",
-                      "default": "",
-                      "examples": [
-                          "User name can't be blank"
-                      ]
-                  },
-                  {
-                      "$id": "#/properties/errors/items/0/items/2",
-                      "type": "string",
-                      "title": "The third items schema",
-                      "description": "An explanation about the purpose of this instance.",
-                      "default": "",
-                      "examples": [
-                          "User name is too short (minimum is 3 characters)"
-                      ]
-                  }
+                  "Name can't be blank"
               ]
           }
       }

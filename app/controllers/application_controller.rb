@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  include Pundit
 
   attr_reader :current_user
 
