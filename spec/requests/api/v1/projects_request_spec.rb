@@ -1,76 +1,73 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Projects", type: :request do
-
-  let(:user) {create(:user)}
+RSpec.describe 'Api::V1::Projects', type: :request do
+  let(:user) { create(:user) }
   let(:token) { JsonWebToken.encode(user_id: user.id) }
   let(:headers) { { authorization: token, accept: 'application/json' } }
+
   describe 'GET api/v1/projects' do
     before do
       create_list(:project, 3, user: user)
       get '/api/v1/projects', headers: headers
     end
 
+    it 'return all list of projects of current user' do
+      expect(response).to have_http_status(:ok)
 
-      it 'return all list of projects of current user' do
-        expect(response).to have_http_status(:ok)
-
-        expect(response.body).to match_json_schema('projects')
-
-
+      expect(response.body).to match_json_schema('projects')
     end
   end
 
-
   describe 'SHOW api/v1/projects/:id' do
-    let(:params) { {project:{ id: project.id }} }
-    let(:project){create(:project,user:user)}
+    let(:params) { { project: { id: project.id } } }
+    let(:project) { create(:project, user: user) }
+
     before do
-      get "/api/v1/projects/#{project.id}", headers: headers,params: params
+      get "/api/v1/projects/#{project.id}", headers: headers, params: params
     end
 
-      it 'return project of current user' do
-        expect(response).to have_http_status(:ok)
-        expect(response.body).to match_json_schema('project')
+    it 'return project of current user' do
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to match_json_schema('project')
     end
   end
 
   describe 'POST api/v1/projects' do
     before do
-      post '/api/v1/projects', headers: headers,params: params
+      post '/api/v1/projects', headers: headers, params: params
     end
 
     context 'when input valid params for create new project' do
-      let(:params) {{project: attributes_for(:project) }}
+      let(:params) { { project: attributes_for(:project) } }
+
       it 'with success' do
         expect(response.body).to match_json_schema('project')
         expect(response).to have_http_status(:created)
-
       end
     end
 
     context 'when input invalid params for create new project' do
-      let!(:project){create(:project,user:user)}
+      let!(:project) { create(:project, user: user) }
 
-      let(:params) {{project: {name: project.name}} }
+      let(:params) { { project: { name: project.name } } }
+
       it 'with fail, because inputs exist`s project name' do
         expect(response.body).to match_json_schema('error')
         expect(response).to have_http_status(:unprocessable_entity)
-        end
       end
+    end
   end
 
   describe 'PUT api/v1/projects/:id' do
     let(:project) { create(:project, user: user) }
 
     before do
-      put "/api/v1/projects/#{project.id}", headers: headers,params: params
+      put "/api/v1/projects/#{project.id}", headers: headers, params: params
     end
 
     context 'when input valid params for update project' do
       let(:name) { FFaker::Lorem.word }
-      let(:params) { {project:{ id: project.id, name: name }} }
-
+      let(:params) { { project: { id: project.id, name: name } } }
 
       it 'with success' do
         expect(response.body).to match_json_schema('project')
@@ -78,10 +75,8 @@ RSpec.describe "Api::V1::Projects", type: :request do
       end
     end
 
-    context 'when input invalid params for update project' do
-
-      let(:params) { {project:{ id: project.id, name: '' }} }
-
+    context 'when input invalid params for update project with fail :unprocessable_entity' do
+      let(:params) { { project: { id: project.id, name: '' } } }
 
       it 'with fails, because name is empty' do
         expect(response.body).to match_json_schema('error')
@@ -90,46 +85,34 @@ RSpec.describe "Api::V1::Projects", type: :request do
     end
 
     context 'when input invalid params for update project' do
+      let(:params) { { project: { id: nil, name: '' } } }
 
-      let(:params) { {project:{ id: nil, name: '' }} }
-
-
-      it 'with fails, because name is empty and project_id is nil' do
+      it 'with fails, because name is empty and project_id is nil with not_found' do
         expect(response.body).to match_json_schema('error')
         expect(response).to have_http_status(:not_found)
       end
     end
-
-
   end
 
   describe 'DELETE api/v1/projects/:id' do
     let!(:project) { create(:project, user: user) }
 
-
     context 'when input valid params for delete project' do
-
-      let(:params) { {project:{ id: project.id }} }
-
+      let(:params) { { project: { id: project.id } } }
 
       it 'with success' do
-        expect {delete "/api/v1/projects/#{project.id}", headers: headers,params: params}.to change(Project, :count).by(-1)
+        expect { delete "/api/v1/projects/#{project.id}", headers: headers, params: params }.to change(Project, :count).by(-1)
         expect(response).to have_http_status(:ok)
       end
     end
 
     context 'when input invalid params for delete project' do
-
-      let(:params) { {project:{ id: 0}} }
-
+      let(:params) { { project: { id: 0 } } }
 
       it 'with fails, because id is invalid' do
-
-        expect {delete "/api/v1/projects/#{project.id}", headers: headers,params: params}.to change(Project, :count).by(0)
+        expect { delete "/api/v1/projects/#{project.id}", headers: headers, params: params }.to change(Project, :count).by(0)
         expect(response).to have_http_status(:not_found)
       end
     end
-
-
   end
 end

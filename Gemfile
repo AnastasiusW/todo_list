@@ -20,26 +20,26 @@ gem 'puma', '~> 4.1'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'acts_as_list'
+gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'fast_jsonapi'
-gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 gem 'jwt', '~> 2.2', '>= 2.2.1'
 gem 'pundit', '~> 2.1'
-gem 'acts_as_list'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
-  gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'factory_bot_rails'
   gem 'ffaker', '~> 2.13'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rubocop'
-
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rubocop', '~> 0.88.0'
+  gem 'rubocop-rspec', '~> 1.42'
 end
 
 group :development do
@@ -55,4 +55,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

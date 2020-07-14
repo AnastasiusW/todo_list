@@ -5,8 +5,6 @@ Rails.application.routes.draw do
       post 'sign_in', to: 'authentication#create'
       resources :projects
       resources :tasks
-
-
     end
   end
 end

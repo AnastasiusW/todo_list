@@ -3,5 +3,4 @@ class Task < ApplicationRecord
 
   acts_as_list scope: :project
   validates :name, presence: true
-
 end
