@@ -1,17 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe 'Api::V1::Projects', type: :request do
+  include Docs::V1::Projects::Api
   let(:user) { create(:user) }
   let(:token) { JsonWebToken.encode(user_id: user.id) }
   let(:headers) { { authorization: token, accept: 'application/json' } }
 
   describe 'GET api/v1/projects' do
+    include Docs::V1::Projects::Index
+
     before do
       create_list(:project, 3, user: user)
       get '/api/v1/projects', headers: headers
     end
 
-    it 'return all list of projects of current user' do
+    it 'return all list of projects of current user', :dox do
       expect(response).to have_http_status(:ok)
 
       expect(response.body).to match_json_schema('projects')
@@ -26,7 +29,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       get "/api/v1/projects/#{project.id}", headers: headers, params: params
     end
 
-    it 'return project of current user' do
+    it 'return project of current user', :dox do
       expect(response).to have_http_status(:ok)
       expect(response.body).to match_json_schema('project')
     end
