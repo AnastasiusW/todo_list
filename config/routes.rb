@@ -4,7 +4,12 @@ Rails.application.routes.draw do
       resources :users, only: :create
       post 'sign_in', to: 'authentication#create'
       resources :projects
-      resources :tasks
+      resources :tasks do
+        member do
+          patch :position
+          patch :complete
+        end
+      end
     end
   end
 end

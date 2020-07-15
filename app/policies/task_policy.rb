@@ -11,10 +11,17 @@ class TaskPolicy < ApplicationPolicy
     check_policy
   end
 
+  def complete?
+    check_policy
+  end
+
+  def position?
+    check_policy
+  end
+
   private
 
   def check_policy
-    binding.pry
     user.present? && user == record.project.user
   end
 end

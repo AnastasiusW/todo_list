@@ -50,9 +50,9 @@ group :development do
 end
 
 group :test do
+  gem 'dox', require: false
   gem 'json_matchers'
   gem 'shoulda-matchers'
-  gem 'dox', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
