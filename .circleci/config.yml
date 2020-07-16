@@ -5,7 +5,6 @@ jobs:
       - image: circleci/ruby:2.6.3-node-browsers-legacy
       - image: circleci/postgres:12.1
         environment:
-          BUNDLER_VERSION: 2.0.2
           POSTGRES_USER: pguser
           POSTGRES_DB: todo_list_test
           POSTGRES_PASSWORD: root
