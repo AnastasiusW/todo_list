@@ -20,7 +20,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            bundle install --path vendor/bundle
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
       - save_cache:
           key: gem-cache-v1-{{ checksum "Gemfile.lock" }}
           paths:
