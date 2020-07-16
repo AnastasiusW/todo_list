@@ -3,11 +3,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: :create
       post 'sign_in', to: 'authentication#create'
-      resources :projects
-      resources :tasks do
-        member do
-          patch :position
-          patch :complete
+      resources :projects do
+        resources :tasks do
+          member do
+            patch :position
+            patch :complete
+          end
         end
       end
     end
