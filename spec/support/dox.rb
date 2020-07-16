@@ -1,5 +1,4 @@
 require 'dox'
-Dir[Rails.root.join('spec/docs/**/*.rb')].each { |file| require file }
 
 RSpec.configure do |config|
   config.after(:each, :dox) do |example|
@@ -7,6 +6,7 @@ RSpec.configure do |config|
     example.metadata[:response] = response
   end
 end
+Dir[Rails.root.join('spec/docs/**/*.rb')].sort.each { |file| require file }
 
 Dox.configure do |config|
   config.header_file_path = Rails.root.join('spec/docs/v1/descriptions/header.md')
