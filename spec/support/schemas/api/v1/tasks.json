@@ -1,0 +1,574 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+      {
+          "data": [
+              {
+                  "id": "601",
+                  "type": "task",
+                  "attributes": {
+                      "name": "sapiente",
+                      "position": 1,
+                      "deadline": "2020-07-18T13:03:36.901Z",
+                      "done": false,
+                      "created_at": "2020-07-16T13:03:36.902Z",
+                      "updated_at": "2020-07-16T13:03:36.902Z"
+                  },
+                  "relationships": {
+                      "project": {
+                          "data": {
+                              "id": "357",
+                              "type": "project"
+                          }
+                      }
+                  }
+              },
+              {
+                  "id": "602",
+                  "type": "task",
+                  "attributes": {
+                      "name": "pariatur",
+                      "position": 2,
+                      "deadline": "2020-07-18T13:03:36.911Z",
+                      "done": false,
+                      "created_at": "2020-07-16T13:03:36.911Z",
+                      "updated_at": "2020-07-16T13:03:36.911Z"
+                  },
+                  "relationships": {
+                      "project": {
+                          "data": {
+                              "id": "357",
+                              "type": "project"
+                          }
+                      }
+                  }
+              }
+          ]
+      }
+  ],
+  "required": [
+      "data"
+  ],
+  "additionalProperties": true,
+  "properties": {
+      "data": {
+          "$id": "#/properties/data",
+          "type": "array",
+          "title": "The data schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+              [
+                  {
+                      "id": "601",
+                      "type": "task",
+                      "attributes": {
+                          "name": "sapiente",
+                          "position": 1,
+                          "deadline": "2020-07-18T13:03:36.901Z",
+                          "done": false,
+                          "created_at": "2020-07-16T13:03:36.902Z",
+                          "updated_at": "2020-07-16T13:03:36.902Z"
+                      },
+                      "relationships": {
+                          "project": {
+                              "data": {
+                                  "id": "357",
+                                  "type": "project"
+                              }
+                          }
+                      }
+                  },
+                  {
+                      "id": "602",
+                      "type": "task",
+                      "attributes": {
+                          "name": "pariatur",
+                          "position": 2,
+                          "deadline": "2020-07-18T13:03:36.911Z",
+                          "done": false,
+                          "created_at": "2020-07-16T13:03:36.911Z",
+                          "updated_at": "2020-07-16T13:03:36.911Z"
+                      },
+                      "relationships": {
+                          "project": {
+                              "data": {
+                                  "id": "357",
+                                  "type": "project"
+                              }
+                          }
+                      }
+                  }
+              ]
+          ],
+          "additionalItems": true,
+          "items": [
+              {
+                  "$id": "#/properties/data/items/0",
+                  "type": "object",
+                  "title": "The first items schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                      {
+                          "id": "601",
+                          "type": "task",
+                          "attributes": {
+                              "name": "sapiente",
+                              "position": 1,
+                              "deadline": "2020-07-18T13:03:36.901Z",
+                              "done": false,
+                              "created_at": "2020-07-16T13:03:36.902Z",
+                              "updated_at": "2020-07-16T13:03:36.902Z"
+                          },
+                          "relationships": {
+                              "project": {
+                                  "data": {
+                                      "id": "357",
+                                      "type": "project"
+                                  }
+                              }
+                          }
+                      }
+                  ],
+                  "required": [
+                      "id",
+                      "type",
+                      "attributes",
+                      "relationships"
+                  ],
+                  "additionalProperties": true,
+                  "properties": {
+                      "id": {
+                          "$id": "#/properties/data/items/0/properties/id",
+                          "type": "string",
+                          "title": "The id schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                              "601"
+                          ]
+                      },
+                      "type": {
+                          "$id": "#/properties/data/items/0/properties/type",
+                          "type": "string",
+                          "title": "The type schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                              "task"
+                          ]
+                      },
+                      "attributes": {
+                          "$id": "#/properties/data/items/0/properties/attributes",
+                          "type": "object",
+                          "title": "The attributes schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                              {
+                                  "name": "sapiente",
+                                  "position": 1,
+                                  "deadline": "2020-07-18T13:03:36.901Z",
+                                  "done": false,
+                                  "created_at": "2020-07-16T13:03:36.902Z",
+                                  "updated_at": "2020-07-16T13:03:36.902Z"
+                              }
+                          ],
+                          "required": [
+                              "name",
+                              "position",
+                              "deadline",
+                              "done",
+                              "created_at",
+                              "updated_at"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                              "name": {
+                                  "$id": "#/properties/data/items/0/properties/attributes/properties/name",
+                                  "type": "string",
+                                  "title": "The name schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "sapiente"
+                                  ]
+                              },
+                              "position": {
+                                  "$id": "#/properties/data/items/0/properties/attributes/properties/position",
+                                  "type": "integer",
+                                  "title": "The position schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": 0,
+                                  "examples": [
+                                      1
+                                  ]
+                              },
+                              "deadline": {
+                                  "$id": "#/properties/data/items/0/properties/attributes/properties/deadline",
+                                  "type": "string",
+                                  "title": "The deadline schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "2020-07-18T13:03:36.901Z"
+                                  ]
+                              },
+                              "done": {
+                                  "$id": "#/properties/data/items/0/properties/attributes/properties/done",
+                                  "type": "boolean",
+                                  "title": "The done schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": false,
+                                  "examples": [
+                                      false
+                                  ]
+                              },
+                              "created_at": {
+                                  "$id": "#/properties/data/items/0/properties/attributes/properties/created_at",
+                                  "type": "string",
+                                  "title": "The created_at schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "2020-07-16T13:03:36.902Z"
+                                  ]
+                              },
+                              "updated_at": {
+                                  "$id": "#/properties/data/items/0/properties/attributes/properties/updated_at",
+                                  "type": "string",
+                                  "title": "The updated_at schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "2020-07-16T13:03:36.902Z"
+                                  ]
+                              }
+                          }
+                      },
+                      "relationships": {
+                          "$id": "#/properties/data/items/0/properties/relationships",
+                          "type": "object",
+                          "title": "The relationships schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                              {
+                                  "project": {
+                                      "data": {
+                                          "id": "357",
+                                          "type": "project"
+                                      }
+                                  }
+                              }
+                          ],
+                          "required": [
+                              "project"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                              "project": {
+                                  "$id": "#/properties/data/items/0/properties/relationships/properties/project",
+                                  "type": "object",
+                                  "title": "The project schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": {},
+                                  "examples": [
+                                      {
+                                          "data": {
+                                              "id": "357",
+                                              "type": "project"
+                                          }
+                                      }
+                                  ],
+                                  "required": [
+                                      "data"
+                                  ],
+                                  "additionalProperties": true,
+                                  "properties": {
+                                      "data": {
+                                          "$id": "#/properties/data/items/0/properties/relationships/properties/project/properties/data",
+                                          "type": "object",
+                                          "title": "The data schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": {},
+                                          "examples": [
+                                              {
+                                                  "id": "357",
+                                                  "type": "project"
+                                              }
+                                          ],
+                                          "required": [
+                                              "id",
+                                              "type"
+                                          ],
+                                          "additionalProperties": true,
+                                          "properties": {
+                                              "id": {
+                                                  "$id": "#/properties/data/items/0/properties/relationships/properties/project/properties/data/properties/id",
+                                                  "type": "string",
+                                                  "title": "The id schema",
+                                                  "description": "An explanation about the purpose of this instance.",
+                                                  "default": "",
+                                                  "examples": [
+                                                      "357"
+                                                  ]
+                                              },
+                                              "type": {
+                                                  "$id": "#/properties/data/items/0/properties/relationships/properties/project/properties/data/properties/type",
+                                                  "type": "string",
+                                                  "title": "The type schema",
+                                                  "description": "An explanation about the purpose of this instance.",
+                                                  "default": "",
+                                                  "examples": [
+                                                      "project"
+                                                  ]
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              {
+                  "$id": "#/properties/data/items/1",
+                  "type": "object",
+                  "title": "The second items schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                      {
+                          "id": "602",
+                          "type": "task",
+                          "attributes": {
+                              "name": "pariatur",
+                              "position": 2,
+                              "deadline": "2020-07-18T13:03:36.911Z",
+                              "done": false,
+                              "created_at": "2020-07-16T13:03:36.911Z",
+                              "updated_at": "2020-07-16T13:03:36.911Z"
+                          },
+                          "relationships": {
+                              "project": {
+                                  "data": {
+                                      "id": "357",
+                                      "type": "project"
+                                  }
+                              }
+                          }
+                      }
+                  ],
+                  "required": [
+                      "id",
+                      "type",
+                      "attributes",
+                      "relationships"
+                  ],
+                  "additionalProperties": true,
+                  "properties": {
+                      "id": {
+                          "$id": "#/properties/data/items/1/properties/id",
+                          "type": "string",
+                          "title": "The id schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                              "602"
+                          ]
+                      },
+                      "type": {
+                          "$id": "#/properties/data/items/1/properties/type",
+                          "type": "string",
+                          "title": "The type schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                              "task"
+                          ]
+                      },
+                      "attributes": {
+                          "$id": "#/properties/data/items/1/properties/attributes",
+                          "type": "object",
+                          "title": "The attributes schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                              {
+                                  "name": "pariatur",
+                                  "position": 2,
+                                  "deadline": "2020-07-18T13:03:36.911Z",
+                                  "done": false,
+                                  "created_at": "2020-07-16T13:03:36.911Z",
+                                  "updated_at": "2020-07-16T13:03:36.911Z"
+                              }
+                          ],
+                          "required": [
+                              "name",
+                              "position",
+                              "deadline",
+                              "done",
+                              "created_at",
+                              "updated_at"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                              "name": {
+                                  "$id": "#/properties/data/items/1/properties/attributes/properties/name",
+                                  "type": "string",
+                                  "title": "The name schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "pariatur"
+                                  ]
+                              },
+                              "position": {
+                                  "$id": "#/properties/data/items/1/properties/attributes/properties/position",
+                                  "type": "integer",
+                                  "title": "The position schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": 0,
+                                  "examples": [
+                                      2
+                                  ]
+                              },
+                              "deadline": {
+                                  "$id": "#/properties/data/items/1/properties/attributes/properties/deadline",
+                                  "type": "string",
+                                  "title": "The deadline schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "2020-07-18T13:03:36.911Z"
+                                  ]
+                              },
+                              "done": {
+                                  "$id": "#/properties/data/items/1/properties/attributes/properties/done",
+                                  "type": "boolean",
+                                  "title": "The done schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": false,
+                                  "examples": [
+                                      false
+                                  ]
+                              },
+                              "created_at": {
+                                  "$id": "#/properties/data/items/1/properties/attributes/properties/created_at",
+                                  "type": "string",
+                                  "title": "The created_at schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "2020-07-16T13:03:36.911Z"
+                                  ]
+                              },
+                              "updated_at": {
+                                  "$id": "#/properties/data/items/1/properties/attributes/properties/updated_at",
+                                  "type": "string",
+                                  "title": "The updated_at schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "2020-07-16T13:03:36.911Z"
+                                  ]
+                              }
+                          }
+                      },
+                      "relationships": {
+                          "$id": "#/properties/data/items/1/properties/relationships",
+                          "type": "object",
+                          "title": "The relationships schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                              {
+                                  "project": {
+                                      "data": {
+                                          "id": "357",
+                                          "type": "project"
+                                      }
+                                  }
+                              }
+                          ],
+                          "required": [
+                              "project"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                              "project": {
+                                  "$id": "#/properties/data/items/1/properties/relationships/properties/project",
+                                  "type": "object",
+                                  "title": "The project schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": {},
+                                  "examples": [
+                                      {
+                                          "data": {
+                                              "id": "357",
+                                              "type": "project"
+                                          }
+                                      }
+                                  ],
+                                  "required": [
+                                      "data"
+                                  ],
+                                  "additionalProperties": true,
+                                  "properties": {
+                                      "data": {
+                                          "$id": "#/properties/data/items/1/properties/relationships/properties/project/properties/data",
+                                          "type": "object",
+                                          "title": "The data schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": {},
+                                          "examples": [
+                                              {
+                                                  "id": "357",
+                                                  "type": "project"
+                                              }
+                                          ],
+                                          "required": [
+                                              "id",
+                                              "type"
+                                          ],
+                                          "additionalProperties": true,
+                                          "properties": {
+                                              "id": {
+                                                  "$id": "#/properties/data/items/1/properties/relationships/properties/project/properties/data/properties/id",
+                                                  "type": "string",
+                                                  "title": "The id schema",
+                                                  "description": "An explanation about the purpose of this instance.",
+                                                  "default": "",
+                                                  "examples": [
+                                                      "357"
+                                                  ]
+                                              },
+                                              "type": {
+                                                  "$id": "#/properties/data/items/1/properties/relationships/properties/project/properties/data/properties/type",
+                                                  "type": "string",
+                                                  "title": "The type schema",
+                                                  "description": "An explanation about the purpose of this instance.",
+                                                  "default": "",
+                                                  "examples": [
+                                                      "project"
+                                                  ]
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          ]
+      }
+  }
+}

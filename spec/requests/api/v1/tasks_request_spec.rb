@@ -4,6 +4,46 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   let(:token) { JsonWebToken.encode(user_id: user.id) }
   let(:headers) { { authorization: token, accept: 'application/json' } }
 
+  describe 'GET api/v1/tasks' do
+    before do
+      create_list(:task, 2, project: project)
+      get '/api/v1/tasks', headers: headers, params: params
+    end
+
+    context 'when input valid project_id params' do
+      let(:params) { { project_id: project.id } }
+
+      it 'show list of tasks and return status code 201', :dox do
+        expect(response.body).to match_json_schema('tasks')
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    describe 'SHOW api/v1/tasks/:id' do
+      let(:params) { { id: task.id, project_id: project.id } }
+
+      let(:task) { create(:task, project: project) }
+
+      before do
+        get "/api/v1/tasks/#{task.id}", headers: headers, params: params
+      end
+
+      it 'return tasks of project', :dox do
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to match_json_schema('task')
+      end
+    end
+
+    context 'when input invalid params,test will pass with fail' do
+      let(:params) { { project_id: nil } }
+
+      it 'do not show list of task', :dox do
+        expect(response.body).to match_json_schema('error')
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+  end
+
   describe 'POST api/v1/tasks' do
     let(:params) { { project_id: project.id } }
 
@@ -107,7 +147,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
       context 'with  invalid id task' do
         let(:params) { { id: nil, position: 'move_down' } }
-        let(:invalid_id_task) { 10 }
+        let(:invalid_id_task) { 0 }
 
         before do
           patch "/api/v1/tasks/#{invalid_id_task}/position", headers: headers, params: params
@@ -121,20 +161,54 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
     describe 'PATCH api/v1/tasks/:id/complete' do
       let(:task) { create(:task, project: project) }
+      let(:invalid_id_task) { 0 }
 
-      before do
-        patch "/api/v1/tasks/#{task.id}/complete", headers: headers, params: params
+      context 'with input valid done parameter' do
+        let(:params) { { id: task.id, done: true } }
+
+        it 'update task and return status 200', :dox do
+          expect { patch "/api/v1/tasks/#{task.id}/complete", headers: headers, params: params }.to change { Task.find_by(id: task).done }.from(false).to(true)
+
+          expect(response.body).to match_json_schema('task')
+          expect(response).to have_http_status(:ok)
+        end
       end
 
-      describe 'test will pass with success ' do
-        context 'with input valid done parameter' do
-          let(:params) {  { id: task.id, done: true }  }
+      context 'with input invalid done parameter' do
+        let(:params) { { id: task.id, done: '' } }
 
-          it 'update task and return status 200', :dox do
-            expect(response.body).to match_json_schema('task')
-            expect(response).to have_http_status(:ok)
-          end
+        before do
+          patch "/api/v1/tasks/#{invalid_id_task}/complete", headers: headers, params: params
         end
+
+        it 'do not update complete', :dox do
+          expect(response).to have_http_status(:not_found)
+        end
+      end
+    end
+  end
+
+  describe 'DELETE api/v1/tasks/:id' do
+    let!(:task) { create(:task, project: project) }
+    let(:invalid_id_task) { 0 }
+
+    context 'when input valid id task' do
+      let(:params) { { id: task.id } }
+
+      it 'task will be deleted with success', :dox do
+        expect { delete "/api/v1/tasks/#{task.id}", headers: headers, params: params }.to change(Task, :count).by(-1)
+
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'when input invalid id task' do
+      let(:params) { { id: invalid_id_task } }
+
+      it 'task will be deleted with success', :dox do
+        expect { delete "/api/v1/tasks/#{invalid_id_task}", headers: headers, params: params }.to change(Task, :count).by(0)
+
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
