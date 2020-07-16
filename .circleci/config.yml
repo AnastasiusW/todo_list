@@ -29,11 +29,6 @@ jobs:
           key: gem-cache-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - run:
-          name: Config DataBase
-          command: |
-            bundle exec rake db:create db:schema:load --trace
-            bundle exec rake db:migrate
 
       - run:
           name: Run tests
