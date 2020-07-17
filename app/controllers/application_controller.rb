@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   attr_reader :current_user
 
@@ -14,5 +15,11 @@ class ApplicationController < ActionController::API
     rescue JWT::DecodeError => e
       render json: { errors: e.message }, status: :unauthorized
     end
+  end
+
+  private
+
+  def user_not_authorized
+    render json: { error: I18n.t('pundit.errors.user.warning') }, status: :access_denied
   end
 end

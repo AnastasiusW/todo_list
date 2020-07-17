@@ -1,4 +1,5 @@
 RSpec.describe 'Api::V1::Tasks', type: :request do
+  include Docs::V1::Tasks::Api
   let(:user) { create(:user) }
   let(:project) { create(:project, user: user) }
   let(:token) { JsonWebToken.encode(user_id: user.id) }
@@ -6,6 +7,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   let(:project_id) { project.id }
 
   describe 'GET api/v1/projects/:project_id/tasks' do
+    include Docs::V1::Tasks::Index
+
     before do
       create_list(:task, 2, project: project)
       get "/api/v1/projects/#{project_id}/tasks", headers: headers, params: params
@@ -22,6 +25,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   end
 
   describe 'SHOW api/v1/projects/:project_id/tasks/:id' do
+    include Docs::V1::Tasks::Show
+
     let(:params) { { id: task.id, project_id: project.id } }
     let(:task) { create(:task, project: project) }
 
@@ -52,6 +57,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   end
 
   describe 'POST api/v1/projects/:project_id/tasks' do
+    include Docs::V1::Tasks::Create
+
     let(:params) { { project_id: project.id } }
 
     before do
@@ -79,6 +86,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   end
 
   describe 'PATCH api/v1/projects/:project_id/tasks/:id' do
+    include Docs::V1::Tasks::Update
+
     let(:task) { create(:task, project: project) }
 
     before do
@@ -109,6 +118,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   end
 
   describe 'PATCH api/v1/projects/:project_id/tasks/:id/position' do
+    include Docs::V1::Tasks::Position
+
     let!(:task1) { create(:task, project: project, position: 1) }
     let!(:task2) { create(:task, project: project, position: 2) }
     let!(:task3) { create(:task, project: project, position: 3) }
@@ -168,6 +179,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   end
 
   describe 'PATCH api/v1/projects/:project_id/tasks/:id/complete' do
+    include Docs::V1::Tasks::Complete
+
     let(:task) { create(:task, project: project) }
     let(:invalid_id_task) { 0 }
 
@@ -196,6 +209,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
   end
 
   describe 'DELETE api/v1/projects/:project_id/tasks/:id' do
+    include Docs::V1::Tasks::Destroy
+
     let!(:task) { create(:task, project: project) }
     let(:invalid_id_task) { 0 }
 

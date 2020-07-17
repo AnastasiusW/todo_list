@@ -52,6 +52,7 @@ end
 group :test do
   gem 'dox', require: false
   gem 'json_matchers'
+  gem 'pundit-matchers', '~> 1.6.0'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

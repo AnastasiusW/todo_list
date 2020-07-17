@@ -1,5 +1,7 @@
 RSpec.describe 'Api::V1::Users', type: :request do
+  include Docs::V1::Users::Api
   describe 'POST api/v1/users' do
+    include Docs::V1::Users::Create
     before do
       post '/api/v1/users', params: user_params
     end
@@ -8,7 +10,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
       let(:user_attributes) { attributes_for(:user) }
       let(:user_params) { user_attributes.merge(password_confirmation: user_attributes[:password]) }
 
-      it 'sign up user with success' do
+      it 'sign up user with success', :dox do
         expect(response.body).to match_json_schema('user')
 
         expect(response).to have_http_status(:created)
@@ -18,7 +20,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
     context 'when input invalid params for register new user' do
       let(:user_params) { { user_name: '', password: 'password', password_confirmation: 'wrong' } }
 
-      it 'sign up user with empty user_name and wrong password_confirmation' do
+      it 'sign up user with empty user_name and wrong password_confirmation', :dox do
         expect(response.body).to match_json_schema('error')
 
         expect(response).to have_http_status(:unprocessable_entity)

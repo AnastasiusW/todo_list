@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Api::V1::Projects', type: :request do
   include Docs::V1::Projects::Api
   let(:user) { create(:user) }
@@ -22,6 +20,8 @@ RSpec.describe 'Api::V1::Projects', type: :request do
   end
 
   describe 'SHOW api/v1/projects/:id' do
+    include Docs::V1::Projects::Show
+
     let(:params) {  { id: project.id } }
     let(:project) { create(:project, user: user) }
 
@@ -36,6 +36,8 @@ RSpec.describe 'Api::V1::Projects', type: :request do
   end
 
   describe 'POST api/v1/projects' do
+    include Docs::V1::Projects::Create
+
     before do
       post '/api/v1/projects', headers: headers, params: params
     end
@@ -43,7 +45,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
     context 'when input valid params for create new project' do
       let(:params) { attributes_for(:project) }
 
-      it 'create project and return status 201' do
+      it 'create project and return status 201', :dox do
         expect(response.body).to match_json_schema('project')
         expect(response).to have_http_status(:created)
       end
@@ -54,25 +56,27 @@ RSpec.describe 'Api::V1::Projects', type: :request do
 
       let(:params) { { name: project.name } }
 
-      it 'test fail, because inputs exist`s project name, statu 422' do
+      it 'test fail, because inputs exist`s project name, return status 422', :dox do
         expect(response.body).to match_json_schema('error')
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
-  describe 'PUT api/v1/projects/:id' do
+  describe 'PATCH api/v1/projects/:id' do
+    include Docs::V1::Projects::Update
+
     let(:project) { create(:project, user: user) }
 
     context 'when input valid params for update project' do
       before do
-        put "/api/v1/projects/#{project.id}", headers: headers, params: params
+        patch "/api/v1/projects/#{project.id}", headers: headers, params: params
       end
 
       let(:name) { FFaker::Lorem.word }
       let(:params) {  { id: project.id, name: name } }
 
-      it 'update task and return status 200' do
+      it 'update task and return status 200', :dox do
         expect(response.body).to match_json_schema('project')
         expect(response).to have_http_status(:ok)
       end
@@ -82,10 +86,10 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       let(:params) { { id: project.id, name: '' } }
 
       before do
-        put "/api/v1/projects/#{project.id}", headers: headers, params: params
+        patch "/api/v1/projects/#{project.id}", headers: headers, params: params
       end
 
-      it 'with fails, because name is empty, return status 422' do
+      it 'with fails, because name is empty, return status 422', :dox do
         expect(response.body).to match_json_schema('error')
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -96,10 +100,10 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       let(:invalid_project_id) { 0 }
 
       before do
-        put "/api/v1/projects/#{invalid_project_id}", headers: headers, params: params
+        patch "/api/v1/projects/#{invalid_project_id}", headers: headers, params: params
       end
 
-      it 'with fails, because name is empty and project_id is nil with not_found, return status 200' do
+      it 'with fails, because name is empty and project_id is nil with not_found, return status 200', :dox do
         expect(response.body).to match_json_schema('error')
         expect(response).to have_http_status(:not_found)
       end
@@ -107,13 +111,15 @@ RSpec.describe 'Api::V1::Projects', type: :request do
   end
 
   describe 'DELETE api/v1/projects/:id' do
+    include Docs::V1::Projects::Destroy
+
     let!(:project) { create(:project, user: user) }
     let(:invalid_id_project) { 0 }
 
     context 'when input valid params for delete project' do
       let(:params) { { id: project.id } }
 
-      it 'with success' do
+      it 'project will be destroyed with success', :dox do
         expect { delete "/api/v1/projects/#{project.id}", headers: headers, params: params }.to change(Project, :count).by(-1)
         expect(response).to have_http_status(:ok)
       end
@@ -122,7 +128,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
     context 'when input invalid params for delete project' do
       let(:params) { { id: invalid_id_project } }
 
-      it 'with fails, because id is invalid' do
+      it 'with fails, because id is invalid', :dox do
         expect { delete "/api/v1/projects/#{invalid_id_project}", headers: headers, params: params }.to change(Project, :count).by(0)
         expect(response).to have_http_status(:not_found)
       end
