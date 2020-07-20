@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe Task, type: :model do
   describe 'check validates' do
     context 'with presence' do

@@ -8,19 +8,22 @@
   "examples": [
       {
           "data": {
-              "id": "28",
+              "id": "607",
               "type": "project",
               "attributes": {
-                  "name": "est",
-                  "created_at": "2020-07-09T20:30:09.619Z",
-                  "updated_at": "2020-07-09T20:30:09.619Z"
+                  "name": "a",
+                  "created_at": "2020-07-20T15:37:41.095Z",
+                  "updated_at": "2020-07-20T15:37:41.119Z"
               },
               "relationships": {
                   "user": {
                       "data": {
-                          "id": "70",
+                          "id": "626",
                           "type": "user"
                       }
+                  },
+                  "tasks": {
+                      "data": []
                   }
               }
           }
@@ -39,19 +42,22 @@
           "default": {},
           "examples": [
               {
-                  "id": "28",
+                  "id": "607",
                   "type": "project",
                   "attributes": {
-                      "name": "est",
-                      "created_at": "2020-07-09T20:30:09.619Z",
-                      "updated_at": "2020-07-09T20:30:09.619Z"
+                      "name": "a",
+                      "created_at": "2020-07-20T15:37:41.095Z",
+                      "updated_at": "2020-07-20T15:37:41.119Z"
                   },
                   "relationships": {
                       "user": {
                           "data": {
-                              "id": "70",
+                              "id": "626",
                               "type": "user"
                           }
+                      },
+                      "tasks": {
+                          "data": []
                       }
                   }
               }
@@ -71,7 +77,7 @@
                   "description": "An explanation about the purpose of this instance.",
                   "default": "",
                   "examples": [
-                      "28"
+                      "607"
                   ]
               },
               "type": {
@@ -92,9 +98,9 @@
                   "default": {},
                   "examples": [
                       {
-                          "name": "est",
-                          "created_at": "2020-07-09T20:30:09.619Z",
-                          "updated_at": "2020-07-09T20:30:09.619Z"
+                          "name": "a",
+                          "created_at": "2020-07-20T15:37:41.095Z",
+                          "updated_at": "2020-07-20T15:37:41.119Z"
                       }
                   ],
                   "required": [
@@ -111,7 +117,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "est"
+                              "a"
                           ]
                       },
                       "created_at": {
@@ -121,7 +127,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "2020-07-09T20:30:09.619Z"
+                              "2020-07-20T15:37:41.095Z"
                           ]
                       },
                       "updated_at": {
@@ -131,7 +137,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "2020-07-09T20:30:09.619Z"
+                              "2020-07-20T15:37:41.119Z"
                           ]
                       }
                   }
@@ -146,14 +152,18 @@
                       {
                           "user": {
                               "data": {
-                                  "id": "70",
+                                  "id": "626",
                                   "type": "user"
                               }
+                          },
+                          "tasks": {
+                              "data": []
                           }
                       }
                   ],
                   "required": [
-                      "user"
+                      "user",
+                      "tasks"
                   ],
                   "additionalProperties": true,
                   "properties": {
@@ -166,7 +176,7 @@
                           "examples": [
                               {
                                   "data": {
-                                      "id": "70",
+                                      "id": "626",
                                       "type": "user"
                                   }
                               }
@@ -184,7 +194,7 @@
                                   "default": {},
                                   "examples": [
                                       {
-                                          "id": "70",
+                                          "id": "626",
                                           "type": "user"
                                       }
                                   ],
@@ -201,7 +211,7 @@
                                           "description": "An explanation about the purpose of this instance.",
                                           "default": "",
                                           "examples": [
-                                              "70"
+                                              "626"
                                           ]
                                       },
                                       "type": {
@@ -215,6 +225,36 @@
                                           ]
                                       }
                                   }
+                              }
+                          }
+                      },
+                      "tasks": {
+                          "$id": "#/properties/data/properties/relationships/properties/tasks",
+                          "type": "object",
+                          "title": "The tasks schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                              {
+                                  "data": []
+                              }
+                          ],
+                          "required": [
+                              "data"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                              "data": {
+                                  "$id": "#/properties/data/properties/relationships/properties/tasks/properties/data",
+                                  "type": "array",
+                                  "title": "The data schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": [],
+                                  "examples": [
+                                      []
+                                  ],
+                                  "additionalItems": true,
+                                  "items": []
                               }
                           }
                       }

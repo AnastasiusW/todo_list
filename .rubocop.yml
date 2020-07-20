@@ -42,3 +42,7 @@ RSpec/NestedGroups:
   Max: 3
   Exclude:
     - 'spec/requests/**/*'
+
+Metrics/BlockNesting:
+  Exclude:
+    - 'config/initializers/carrierwave.rb'

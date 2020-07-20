@@ -8,13 +8,18 @@
   "examples": [
       {
           "data": {
-              "id": "38",
+              "id": "738",
               "type": "user",
               "attributes": {
-                  "user_name": "marge_kihn",
-                  "password_digest": "$2a$04$dKhzoe/Bqbni3tawtyB1oumhJJ72rBTzIVveYXzAruTKENazjbvGC",
-                  "created_at": "2020-07-07T10:45:59.337Z",
-                  "updated_at": "2020-07-07T10:45:59.337Z"
+                  "user_name": "marget.rodriguez",
+                  "password_digest": "$2a$04$mVFDWpRuemJSmXOKRd6zOejw4POn8MuRPBY/06wZpACBnMHtfm0Vq",
+                  "created_at": "2020-07-20T15:44:14.662Z",
+                  "updated_at": "2020-07-20T15:44:14.662Z"
+              },
+              "relationships": {
+                  "projects": {
+                      "data": []
+                  }
               }
           }
       }
@@ -32,20 +37,26 @@
           "default": {},
           "examples": [
               {
-                  "id": "38",
+                  "id": "738",
                   "type": "user",
                   "attributes": {
-                      "user_name": "marge_kihn",
-                      "password_digest": "$2a$04$dKhzoe/Bqbni3tawtyB1oumhJJ72rBTzIVveYXzAruTKENazjbvGC",
-                      "created_at": "2020-07-07T10:45:59.337Z",
-                      "updated_at": "2020-07-07T10:45:59.337Z"
+                      "user_name": "marget.rodriguez",
+                      "password_digest": "$2a$04$mVFDWpRuemJSmXOKRd6zOejw4POn8MuRPBY/06wZpACBnMHtfm0Vq",
+                      "created_at": "2020-07-20T15:44:14.662Z",
+                      "updated_at": "2020-07-20T15:44:14.662Z"
+                  },
+                  "relationships": {
+                      "projects": {
+                          "data": []
+                      }
                   }
               }
           ],
           "required": [
               "id",
               "type",
-              "attributes"
+              "attributes",
+              "relationships"
           ],
           "additionalProperties": true,
           "properties": {
@@ -56,7 +67,7 @@
                   "description": "An explanation about the purpose of this instance.",
                   "default": "",
                   "examples": [
-                      "38"
+                      "738"
                   ]
               },
               "type": {
@@ -77,10 +88,10 @@
                   "default": {},
                   "examples": [
                       {
-                          "user_name": "marge_kihn",
-                          "password_digest": "$2a$04$dKhzoe/Bqbni3tawtyB1oumhJJ72rBTzIVveYXzAruTKENazjbvGC",
-                          "created_at": "2020-07-07T10:45:59.337Z",
-                          "updated_at": "2020-07-07T10:45:59.337Z"
+                          "user_name": "marget.rodriguez",
+                          "password_digest": "$2a$04$mVFDWpRuemJSmXOKRd6zOejw4POn8MuRPBY/06wZpACBnMHtfm0Vq",
+                          "created_at": "2020-07-20T15:44:14.662Z",
+                          "updated_at": "2020-07-20T15:44:14.662Z"
                       }
                   ],
                   "required": [
@@ -98,7 +109,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "marge_kihn"
+                              "marget.rodriguez"
                           ]
                       },
                       "password_digest": {
@@ -108,7 +119,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "$2a$04$dKhzoe/Bqbni3tawtyB1oumhJJ72rBTzIVveYXzAruTKENazjbvGC"
+                              "$2a$04$mVFDWpRuemJSmXOKRd6zOejw4POn8MuRPBY/06wZpACBnMHtfm0Vq"
                           ]
                       },
                       "created_at": {
@@ -118,7 +129,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "2020-07-07T10:45:59.337Z"
+                              "2020-07-20T15:44:14.662Z"
                           ]
                       },
                       "updated_at": {
@@ -128,8 +139,58 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "2020-07-07T10:45:59.337Z"
+                              "2020-07-20T15:44:14.662Z"
                           ]
+                      }
+                  }
+              },
+              "relationships": {
+                  "$id": "#/properties/data/properties/relationships",
+                  "type": "object",
+                  "title": "The relationships schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": {},
+                  "examples": [
+                      {
+                          "projects": {
+                              "data": []
+                          }
+                      }
+                  ],
+                  "required": [
+                      "projects"
+                  ],
+                  "additionalProperties": true,
+                  "properties": {
+                      "projects": {
+                          "$id": "#/properties/data/properties/relationships/properties/projects",
+                          "type": "object",
+                          "title": "The projects schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                              {
+                                  "data": []
+                              }
+                          ],
+                          "required": [
+                              "data"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                              "data": {
+                                  "$id": "#/properties/data/properties/relationships/properties/projects/properties/data",
+                                  "type": "array",
+                                  "title": "The data schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": [],
+                                  "examples": [
+                                      []
+                                  ],
+                                  "additionalItems": true,
+                                  "items": []
+                              }
+                          }
                       }
                   }
               }

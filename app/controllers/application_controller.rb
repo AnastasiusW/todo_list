@@ -22,4 +22,8 @@ class ApplicationController < ActionController::API
   def user_not_authorized
     render json: { error: I18n.t('pundit.errors.user.warning') }, status: :access_denied
   end
+
+  def not_authorize
+    render json: { errors: [I18n.t('errors.authorize_fail')] }, status: :not_found
+  end
 end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
             patch :position
             patch :complete
           end
+          resources :comments
         end
       end
     end

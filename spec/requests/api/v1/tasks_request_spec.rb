@@ -8,18 +8,35 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
   describe 'GET api/v1/projects/:project_id/tasks' do
     include Docs::V1::Tasks::Index
-
     before do
       create_list(:task, 2, project: project)
-      get "/api/v1/projects/#{project_id}/tasks", headers: headers, params: params
     end
 
     context 'when input valid project_id params' do
       let(:params) { { project_id: project.id } }
 
-      it 'show list of tasks and return status code 201', :dox do
+      before do
+        get "/api/v1/projects/#{project_id}/tasks", headers: headers, params: params
+      end
+
+      it 'show list of tasks and return status code 200', :dox do
         expect(response.body).to match_json_schema('tasks')
         expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'when input invalid project_id params' do
+      let(:invalid_project) { 0 }
+      let(:params) { { project_id: invalid_project } }
+
+      before do
+        get "/api/v1/projects/#{invalid_project}/tasks", headers: headers, params: params
+      end
+
+      it 'show list of comments and return status code 404' do
+        expect(response.body).to match_json_schema('error')
+        expect(response.body).to include(I18n.t('errors.authorize_fail'))
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

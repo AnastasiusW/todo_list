@@ -8,25 +8,25 @@
   "examples": [
       {
           "data": {
-              "id": "539",
-              "type": "task",
+              "id": "211",
+              "type": "comment",
               "attributes": {
-                  "name": "voluptate",
-                  "position": 3,
-                  "deadline": "2020-07-22T15:40:59.943Z",
-                  "done": false,
-                  "created_at": "2020-07-20T15:40:59.944Z",
-                  "updated_at": "2020-07-20T15:41:00.011Z"
-              },
-              "relationships": {
-                  "project": {
-                      "data": {
-                          "id": "650",
-                          "type": "project"
+                  "body": "Praesentium tempore pariatur et eos quia quia. Magni quia molestiae et animi provident esse aliquid omnis.",
+                  "file": {
+                      "url": "/test/uploads/comment/file/211/test.jpg",
+                      "medium_img": {
+                          "url": "/test/uploads/comment/file/211/medium_img_test.jpg"
                       }
                   },
-                  "comments": {
-                      "data": []
+                  "created_at": "2020-07-20T15:46:00.426Z",
+                  "updated_at": "2020-07-20T15:46:00.426Z"
+              },
+              "relationships": {
+                  "task": {
+                      "data": {
+                          "id": "648",
+                          "type": "task"
+                      }
                   }
               }
           }
@@ -45,25 +45,25 @@
           "default": {},
           "examples": [
               {
-                  "id": "539",
-                  "type": "task",
+                  "id": "211",
+                  "type": "comment",
                   "attributes": {
-                      "name": "voluptate",
-                      "position": 3,
-                      "deadline": "2020-07-22T15:40:59.943Z",
-                      "done": false,
-                      "created_at": "2020-07-20T15:40:59.944Z",
-                      "updated_at": "2020-07-20T15:41:00.011Z"
-                  },
-                  "relationships": {
-                      "project": {
-                          "data": {
-                              "id": "650",
-                              "type": "project"
+                      "body": "Praesentium tempore pariatur et eos quia quia. Magni quia molestiae et animi provident esse aliquid omnis.",
+                      "file": {
+                          "url": "/test/uploads/comment/file/211/test.jpg",
+                          "medium_img": {
+                              "url": "/test/uploads/comment/file/211/medium_img_test.jpg"
                           }
                       },
-                      "comments": {
-                          "data": []
+                      "created_at": "2020-07-20T15:46:00.426Z",
+                      "updated_at": "2020-07-20T15:46:00.426Z"
+                  },
+                  "relationships": {
+                      "task": {
+                          "data": {
+                              "id": "648",
+                              "type": "task"
+                          }
                       }
                   }
               }
@@ -83,7 +83,7 @@
                   "description": "An explanation about the purpose of this instance.",
                   "default": "",
                   "examples": [
-                      "539"
+                      "211"
                   ]
               },
               "type": {
@@ -93,7 +93,7 @@
                   "description": "An explanation about the purpose of this instance.",
                   "default": "",
                   "examples": [
-                      "task"
+                      "comment"
                   ]
               },
               "attributes": {
@@ -104,63 +104,94 @@
                   "default": {},
                   "examples": [
                       {
-                          "name": "voluptate",
-                          "position": 3,
-                          "deadline": "2020-07-22T15:40:59.943Z",
-                          "done": false,
-                          "created_at": "2020-07-20T15:40:59.944Z",
-                          "updated_at": "2020-07-20T15:41:00.011Z"
+                          "body": "Praesentium tempore pariatur et eos quia quia. Magni quia molestiae et animi provident esse aliquid omnis.",
+                          "file": {
+                              "url": "/test/uploads/comment/file/211/test.jpg",
+                              "medium_img": {
+                                  "url": "/test/uploads/comment/file/211/medium_img_test.jpg"
+                              }
+                          },
+                          "created_at": "2020-07-20T15:46:00.426Z",
+                          "updated_at": "2020-07-20T15:46:00.426Z"
                       }
                   ],
                   "required": [
-                      "name",
-                      "position",
-                      "deadline",
-                      "done",
+                      "body",
+                      "file",
                       "created_at",
                       "updated_at"
                   ],
                   "additionalProperties": true,
                   "properties": {
-                      "name": {
-                          "$id": "#/properties/data/properties/attributes/properties/name",
+                      "body": {
+                          "$id": "#/properties/data/properties/attributes/properties/body",
                           "type": "string",
-                          "title": "The name schema",
+                          "title": "The body schema",
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "voluptate"
+                              "Praesentium tempore pariatur et eos quia quia. Magni quia molestiae et animi provident esse aliquid omnis."
                           ]
                       },
-                      "position": {
-                          "$id": "#/properties/data/properties/attributes/properties/position",
-                          "type": "integer",
-                          "title": "The position schema",
+                      "file": {
+                          "$id": "#/properties/data/properties/attributes/properties/file",
+                          "type": "object",
+                          "title": "The file schema",
                           "description": "An explanation about the purpose of this instance.",
-                          "default": 0,
+                          "default": {},
                           "examples": [
-                              3
-                          ]
-                      },
-                      "deadline": {
-                          "$id": "#/properties/data/properties/attributes/properties/deadline",
-                          "type": "string",
-                          "title": "The deadline schema",
-                          "description": "An explanation about the purpose of this instance.",
-                          "default": "",
-                          "examples": [
-                              "2020-07-22T15:40:59.943Z"
-                          ]
-                      },
-                      "done": {
-                          "$id": "#/properties/data/properties/attributes/properties/done",
-                          "type": "boolean",
-                          "title": "The done schema",
-                          "description": "An explanation about the purpose of this instance.",
-                          "default": false,
-                          "examples": [
-                              false
-                          ]
+                              {
+                                  "url": "/test/uploads/comment/file/211/test.jpg",
+                                  "medium_img": {
+                                      "url": "/test/uploads/comment/file/211/medium_img_test.jpg"
+                                  }
+                              }
+                          ],
+                          "required": [
+                              "url",
+                              "medium_img"
+                          ],
+                          "additionalProperties": true,
+                          "properties": {
+                              "url": {
+                                  "$id": "#/properties/data/properties/attributes/properties/file/properties/url",
+                                  "type": "string",
+                                  "title": "The url schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                      "/test/uploads/comment/file/211/test.jpg"
+                                  ]
+                              },
+                              "medium_img": {
+                                  "$id": "#/properties/data/properties/attributes/properties/file/properties/medium_img",
+                                  "type": "object",
+                                  "title": "The medium_img schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": {},
+                                  "examples": [
+                                      {
+                                          "url": "/test/uploads/comment/file/211/medium_img_test.jpg"
+                                      }
+                                  ],
+                                  "required": [
+                                      "url"
+                                  ],
+                                  "additionalProperties": true,
+                                  "properties": {
+                                      "url": {
+                                          "$id": "#/properties/data/properties/attributes/properties/file/properties/medium_img/properties/url",
+                                          "type": "string",
+                                          "title": "The url schema",
+                                          "description": "An explanation about the purpose of this instance.",
+                                          "default": "",
+                                          "examples": [
+                                              "/test/uploads/comment/file/211/medium_img_test.jpg"
+                                          ]
+                                      }
+                                  }
+                              }
+                          }
                       },
                       "created_at": {
                           "$id": "#/properties/data/properties/attributes/properties/created_at",
@@ -169,7 +200,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "2020-07-20T15:40:59.944Z"
+                              "2020-07-20T15:46:00.426Z"
                           ]
                       },
                       "updated_at": {
@@ -179,7 +210,7 @@
                           "description": "An explanation about the purpose of this instance.",
                           "default": "",
                           "examples": [
-                              "2020-07-20T15:41:00.011Z"
+                              "2020-07-20T15:46:00.426Z"
                           ]
                       }
                   }
@@ -192,34 +223,30 @@
                   "default": {},
                   "examples": [
                       {
-                          "project": {
+                          "task": {
                               "data": {
-                                  "id": "650",
-                                  "type": "project"
+                                  "id": "648",
+                                  "type": "task"
                               }
-                          },
-                          "comments": {
-                              "data": []
                           }
                       }
                   ],
                   "required": [
-                      "project",
-                      "comments"
+                      "task"
                   ],
                   "additionalProperties": true,
                   "properties": {
-                      "project": {
-                          "$id": "#/properties/data/properties/relationships/properties/project",
+                      "task": {
+                          "$id": "#/properties/data/properties/relationships/properties/task",
                           "type": "object",
-                          "title": "The project schema",
+                          "title": "The task schema",
                           "description": "An explanation about the purpose of this instance.",
                           "default": {},
                           "examples": [
                               {
                                   "data": {
-                                      "id": "650",
-                                      "type": "project"
+                                      "id": "648",
+                                      "type": "task"
                                   }
                               }
                           ],
@@ -229,15 +256,15 @@
                           "additionalProperties": true,
                           "properties": {
                               "data": {
-                                  "$id": "#/properties/data/properties/relationships/properties/project/properties/data",
+                                  "$id": "#/properties/data/properties/relationships/properties/task/properties/data",
                                   "type": "object",
                                   "title": "The data schema",
                                   "description": "An explanation about the purpose of this instance.",
                                   "default": {},
                                   "examples": [
                                       {
-                                          "id": "650",
-                                          "type": "project"
+                                          "id": "648",
+                                          "type": "task"
                                       }
                                   ],
                                   "required": [
@@ -247,56 +274,26 @@
                                   "additionalProperties": true,
                                   "properties": {
                                       "id": {
-                                          "$id": "#/properties/data/properties/relationships/properties/project/properties/data/properties/id",
+                                          "$id": "#/properties/data/properties/relationships/properties/task/properties/data/properties/id",
                                           "type": "string",
                                           "title": "The id schema",
                                           "description": "An explanation about the purpose of this instance.",
                                           "default": "",
                                           "examples": [
-                                              "650"
+                                              "648"
                                           ]
                                       },
                                       "type": {
-                                          "$id": "#/properties/data/properties/relationships/properties/project/properties/data/properties/type",
+                                          "$id": "#/properties/data/properties/relationships/properties/task/properties/data/properties/type",
                                           "type": "string",
                                           "title": "The type schema",
                                           "description": "An explanation about the purpose of this instance.",
                                           "default": "",
                                           "examples": [
-                                              "project"
+                                              "task"
                                           ]
                                       }
                                   }
-                              }
-                          }
-                      },
-                      "comments": {
-                          "$id": "#/properties/data/properties/relationships/properties/comments",
-                          "type": "object",
-                          "title": "The comments schema",
-                          "description": "An explanation about the purpose of this instance.",
-                          "default": {},
-                          "examples": [
-                              {
-                                  "data": []
-                              }
-                          ],
-                          "required": [
-                              "data"
-                          ],
-                          "additionalProperties": true,
-                          "properties": {
-                              "data": {
-                                  "$id": "#/properties/data/properties/relationships/properties/comments/properties/data",
-                                  "type": "array",
-                                  "title": "The data schema",
-                                  "description": "An explanation about the purpose of this instance.",
-                                  "default": [],
-                                  "examples": [
-                                      []
-                                  ],
-                                  "additionalItems": true,
-                                  "items": []
                               }
                           }
                       }

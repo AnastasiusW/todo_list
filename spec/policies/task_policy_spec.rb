@@ -15,6 +15,7 @@ RSpec.describe TaskPolicy do
 
   context 'without user' do
     let(:user) { nil }
+
     let(:task) { create(:task) }
 
     it { is_expected.to forbid_action(:destroy) }

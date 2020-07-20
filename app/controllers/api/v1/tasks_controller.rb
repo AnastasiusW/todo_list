@@ -65,10 +65,6 @@ class Api::V1::TasksController < ApplicationController
     authorize @task if @task
   end
 
-  def not_authorize
-    render json: { errors: [I18n.t('errors.authorize_fail')] }, status: :not_found
-  end
-
   def current_project
     current_user.projects.find_by(id: params[:project_id])
   end

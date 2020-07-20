@@ -10,6 +10,10 @@ en:
       project_not_found: Project not found
     tasks:
       task_not_found: Task not found
+    comment:
+      file_size: An uploaded file is too large. The size shouldn’t exceed 10 MB
+
+
   pundit:
     errors:
       user:

@@ -23,8 +23,11 @@ gem 'puma', '~> 4.1'
 gem 'acts_as_list'
 gem 'bcrypt', '~> 3.1', '>= 3.1.13'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'carrierwave', '~> 2.1'
 gem 'fast_jsonapi'
+gem 'fog-aws'
 gem 'jwt', '~> 2.2', '>= 2.2.1'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'pundit', '~> 2.1'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible

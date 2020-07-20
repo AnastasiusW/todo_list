@@ -7,7 +7,7 @@
   "default": {},
   "examples": [
       {
-          "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1MSwiZXhwIjoxNTk0Mjk5ODcyfQ.OefdMSEP1oJ4TrVekbLOKo2J0hTjXRvrPKyCX-AtDeY"
+          "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2MjAsImV4cCI6MTU5NTM0NTcyNX0.mOT_BBxJR7prFKTUtM2OzhxcCY4Diy9ATOUlYlYX6hA"
       }
   ],
   "required": [
@@ -22,7 +22,7 @@
           "description": "An explanation about the purpose of this instance.",
           "default": "",
           "examples": [
-              "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo1MSwiZXhwIjoxNTk0Mjk5ODcyfQ.OefdMSEP1oJ4TrVekbLOKo2J0hTjXRvrPKyCX-AtDeY"
+              "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2MjAsImV4cCI6MTU5NTM0NTcyNX0.mOT_BBxJR7prFKTUtM2OzhxcCY4Diy9ATOUlYlYX6hA"
           ]
       }
   }

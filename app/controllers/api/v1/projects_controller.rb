@@ -44,8 +44,4 @@ class Api::V1::ProjectsController < ApplicationController
     @project = Project.find_by(id: project_params[:id])
     authorize @project if @project
   end
-
-  def not_authorize
-    render json: { errors: [I18n.t('errors.authorize_fail')] }, status: :not_found
-  end
 end
