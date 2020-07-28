@@ -1,9 +1,9 @@
 RSpec.describe TaskPolicy do
-  subject { described_class.new(user, task) }
+  subject { described_class.new(visitor, task) }
 
   context 'with user' do
-    let(:user) { create(:user) }
-    let(:project) { create(:project, user: user) }
+    let(:visitor) { create(:user) }
+    let(:project) { create(:project, user: visitor) }
     let(:task) { create(:task, project: project) }
 
     it { is_expected.to permit_action(:destroy) }
@@ -14,8 +14,19 @@ RSpec.describe TaskPolicy do
   end
 
   context 'without user' do
-    let(:user) { nil }
+    let(:visitor) { nil }
 
+    let(:task) { create(:task) }
+
+    it { is_expected.to forbid_action(:destroy) }
+    it { is_expected.to forbid_action(:update) }
+    it { is_expected.to forbid_action(:edit) }
+    it { is_expected.to forbid_action(:position) }
+    it { is_expected.to forbid_action(:complete) }
+  end
+
+  context 'with not persist user' do
+    let(:visitor) { build(:user) }
     let(:task) { create(:task) }
 
     it { is_expected.to forbid_action(:destroy) }

@@ -37,10 +37,10 @@ RSpec.describe 'Api::V1::Comments', type: :request do
         get "/api/v1/projects/#{project_id}/tasks/#{invalid_task}/comments", headers: headers, params: params
       end
 
-      it 'show list of comments and return status code 404' do
+      it 'show list of comments and return status code 401' do
         expect(response.body).to match_json_schema('error')
         expect(response.body).to include(I18n.t('errors.authorize_fail'))
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
@@ -80,7 +80,10 @@ RSpec.describe 'Api::V1::Comments', type: :request do
       let(:params) { { id: comment.id } }
 
       it 'task will be deleted with success', :dox do
-        expect { delete "/api/v1/projects/#{project_id}/tasks/#{task_id}/comments/#{comment.id}", headers: headers, params: params }.to change(Comment, :count).by(-1)
+        expect do
+          delete "/api/v1/projects/#{project_id}/tasks/#{task_id}/comments/#{comment.id}",
+                 headers: headers, params: params
+        end .to change(Comment, :count).by(-1)
 
         expect(response).to have_http_status(:ok)
       end
@@ -89,10 +92,13 @@ RSpec.describe 'Api::V1::Comments', type: :request do
     context 'when input invalid id comment' do
       let(:params) { { id: invalid_id_comment } }
 
-      it 'task will be deleted with success', :dox do
-        expect { delete "/api/v1/projects/#{project_id}/tasks/#{task_id}/comments/#{invalid_id_comment}", headers: headers, params: params }.to change(Task, :count).by(0)
+      it 'task will be not deleted', :dox do
+        expect do
+          delete "/api/v1/projects/#{project_id}/tasks/#{task_id}/comments/#{invalid_id_comment}",
+                 headers: headers, params: params
+        end .to change(Task, :count).by(0)
 
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end

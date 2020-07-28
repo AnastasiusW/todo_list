@@ -14,6 +14,6 @@ class ProjectPolicy < ApplicationPolicy
   private
 
   def check_policy
-    user.present? && user == record.user
+    user.present? && user.persisted? && user == record.user
   end
 end

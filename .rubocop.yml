@@ -16,8 +16,7 @@ Style/Documentation:
 
 Metrics/LineLength:
   Max: 120
-  Exclude:
-    - 'spec/requests/**/*'
+
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -27,13 +26,13 @@ Metrics/BlockLength:
   ExcludedMethods: ['describe','context']
 
 RSpec/MultipleExpectations:
-  Max: 1
   Exclude:
   - 'spec/requests/**/*'
 
 
 RSpec/ExampleLength:
-  Max: 7
+  Exclude:
+  - 'spec/requests/api/v1/tasks_request_spec.rb'
 
 Style/ClassAndModuleChildren:
   Enabled: false

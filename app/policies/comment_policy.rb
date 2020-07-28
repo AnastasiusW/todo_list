@@ -6,6 +6,6 @@ class CommentPolicy < ApplicationPolicy
   private
 
   def check_policy
-    user.present? && user == record.task.project.user
+    user.present? && user.persisted? && user == record.task.project.user
   end
 end

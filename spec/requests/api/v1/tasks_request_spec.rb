@@ -33,10 +33,10 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         get "/api/v1/projects/#{invalid_project}/tasks", headers: headers, params: params
       end
 
-      it 'show list of comments and return status code 404' do
+      it 'show list of comments and return status code 401' do
         expect(response.body).to match_json_schema('error')
         expect(response.body).to include(I18n.t('errors.authorize_fail'))
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
@@ -68,7 +68,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
       it 'do not show task', :dox do
         expect(response.body).to match_json_schema('error')
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
@@ -146,9 +146,12 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         let(:params) {  { id: task2.id, position: 'move_up' } }
 
         it 'update task and return status 200', :dox do
-          expect { patch "/api/v1/projects/#{project_id}/tasks/#{task2.id}/position", headers: headers, params: params }.to change {
-                                                                                                                              Task.find_by(id: task2.id).position
-                                                                                                                            } .from(2).to(1)
+          expect do
+            patch "/api/v1/projects/#{project_id}/tasks/#{task2.id}/position",
+                  headers: headers, params: params
+          end .to change {
+                    Task.find_by(id: task2.id).position
+                  } .from(2).to(1)
             .and change { Task.find_by(id: task1.id).position }.from(1).to(2)
           expect(response.body).to match_json_schema('task')
           expect(response).to have_http_status(:ok)
@@ -159,7 +162,12 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         let(:params) {  { id: task2.id, position: 'move_down' } }
 
         it 'update task and return status 200', :dox do
-          expect { patch "/api/v1/projects/#{project_id}/tasks/#{task2.id}/position", headers: headers, params: params }.to change { Task.find_by(id: task2.id).position }.from(2).to(3).and change { Task.find_by(id: task3.id).position }.from(3).to(2)
+          expect do
+            patch "/api/v1/projects/#{project_id}/tasks/#{task2.id}/position",
+                  headers: headers, params: params
+          end .to change { Task.find_by(id: task2.id).position }.from(2).to(3)
+                                                                .and change { Task.find_by(id: task3.id).position }
+            .from(3).to(2)
           expect(response.body).to match_json_schema('task')
           expect(response).to have_http_status(:ok)
         end
@@ -189,7 +197,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         end
 
         it 'do not update position', :dox do
-          expect(response).to have_http_status(:not_found)
+          expect(response).to have_http_status(:unauthorized)
         end
       end
     end
@@ -205,7 +213,10 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       let(:params) { { id: task.id, done: true } }
 
       it 'update task and return status 200', :dox do
-        expect { patch "/api/v1/projects/#{project_id}/tasks/#{task.id}/complete", headers: headers, params: params }.to change { Task.find_by(id: task).done }.from(false).to(true)
+        expect do
+          patch "/api/v1/projects/#{project_id}/tasks/#{task.id}/complete",
+                headers: headers, params: params
+        end .to change { Task.find_by(id: task).done }.from(false).to(true)
 
         expect(response.body).to match_json_schema('task')
         expect(response).to have_http_status(:ok)
@@ -220,7 +231,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       end
 
       it 'do not update complete', :dox do
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
@@ -235,7 +246,10 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       let(:params) { { id: task.id } }
 
       it 'task will be deleted with success', :dox do
-        expect { delete "/api/v1/projects/#{project_id}/tasks/#{task.id}", headers: headers, params: params }.to change(Task, :count).by(-1)
+        expect do
+          delete "/api/v1/projects/#{project_id}/tasks/#{task.id}",
+                 headers: headers, params: params
+        end .to change(Task, :count).by(-1)
 
         expect(response).to have_http_status(:ok)
       end
@@ -245,9 +259,12 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       let(:params) { { id: invalid_id_task } }
 
       it 'task will be deleted with success', :dox do
-        expect { delete "/api/v1/projects/#{project_id}/tasks/#{invalid_id_task}", headers: headers, params: params }.to change(Task, :count).by(0)
+        expect do
+          delete "/api/v1/projects/#{project_id}/tasks/#{invalid_id_task}",
+                 headers: headers, params: params
+        end .to change(Task, :count).by(0)
 
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end

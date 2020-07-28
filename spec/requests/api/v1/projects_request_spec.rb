@@ -103,9 +103,9 @@ RSpec.describe 'Api::V1::Projects', type: :request do
         patch "/api/v1/projects/#{invalid_project_id}", headers: headers, params: params
       end
 
-      it 'with fails, because name is empty and project_id is nil with not_found, return status 200', :dox do
+      it 'with fails, because name is empty and project_id is nil with not_found, return status 401', :dox do
         expect(response.body).to match_json_schema('error')
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
@@ -120,7 +120,10 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       let(:params) { { id: project.id } }
 
       it 'project will be destroyed with success', :dox do
-        expect { delete "/api/v1/projects/#{project.id}", headers: headers, params: params }.to change(Project, :count).by(-1)
+        expect do
+          delete "/api/v1/projects/#{project.id}",
+                 headers: headers, params: params
+        end .to change(Project, :count).by(-1)
         expect(response).to have_http_status(:ok)
       end
     end
@@ -129,8 +132,11 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       let(:params) { { id: invalid_id_project } }
 
       it 'with fails, because id is invalid', :dox do
-        expect { delete "/api/v1/projects/#{invalid_id_project}", headers: headers, params: params }.to change(Project, :count).by(0)
-        expect(response).to have_http_status(:not_found)
+        expect do
+          delete "/api/v1/projects/#{invalid_id_project}",
+                 headers: headers, params: params
+        end .to change(Project, :count).by(0)
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end

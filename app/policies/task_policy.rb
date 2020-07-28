@@ -22,6 +22,6 @@ class TaskPolicy < ApplicationPolicy
   private
 
   def check_policy
-    user.present? && user == record.project.user
+    user.present? && user.persisted? && user == record.project.user
   end
 end

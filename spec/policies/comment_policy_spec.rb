@@ -1,9 +1,9 @@
 RSpec.describe CommentPolicy do
-  subject { described_class.new(user, comment) }
+  subject(:comment_policy) { described_class.new(visitor, comment) }
 
   context 'with user' do
-    let(:user) { create(:user) }
-    let(:project) { create(:project, user: user) }
+    let(:visitor) { create(:user) }
+    let(:project) { create(:project, user: visitor) }
     let(:task) { create(:task, project: project) }
     let(:comment) { create(:comment, task: task) }
 
@@ -11,7 +11,14 @@ RSpec.describe CommentPolicy do
   end
 
   context 'without user' do
-    let(:user) { nil }
+    let(:visitor) { nil }
+    let(:comment) { create(:comment) }
+
+    it { is_expected.to forbid_action(:destroy) }
+  end
+
+  context 'with not persist user' do
+    let(:visitor) { build(:user) }
     let(:comment) { create(:comment) }
 
     it { is_expected.to forbid_action(:destroy) }

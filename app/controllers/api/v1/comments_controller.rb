@@ -17,8 +17,7 @@ class Api::V1::CommentsController < ApplicationController
   def destroy
     return not_authorize unless set_comment
 
-    @comment.destroy
-    render json: {}, status: :ok
+    render json: {}, status: :ok if @comment.destroy
   end
 
   private
@@ -29,10 +28,10 @@ class Api::V1::CommentsController < ApplicationController
 
   def set_comment
     @comment = Comment.find_by(id: comment_params[:id])
-    authorize @comment if @comment
+    authorize(@comment) if @comment
   end
 
   def current_task
-    Task.find_by(id: params[:task_id])
+    Task.find_by(id: comment_params[:task_id])
   end
 end

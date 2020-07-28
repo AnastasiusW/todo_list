@@ -66,6 +66,6 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def current_project
-    current_user.projects.find_by(id: params[:project_id])
+    current_user.projects.find_by(id: task_params[:project_id])
   end
 end

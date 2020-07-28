@@ -6,7 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium_img do
-    process resize_to_fit: [300, nil]
+    process resize_to_fit: [300, 300]
   end
 
   def extension_whitelist

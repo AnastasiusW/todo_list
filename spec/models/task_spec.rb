@@ -1,11 +1,5 @@
 RSpec.describe Task, type: :model do
-  describe 'check validates' do
-    context 'with presence' do
-      it { is_expected.to validate_presence_of(:name) }
-    end
-  end
+  it { is_expected.to validate_presence_of(:name) }
 
-  describe 'with check associations' do
-    it { is_expected.to belong_to(:project) }
-  end
+  it { is_expected.to belong_to(:project) }
 end
