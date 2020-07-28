@@ -11,6 +11,9 @@ RSpec.describe TaskPolicy do
     it { is_expected.to permit_action(:edit) }
     it { is_expected.to permit_action(:position) }
     it { is_expected.to permit_action(:complete) }
+    it { is_expected.to permit_action(:show) }
+    it { is_expected.to forbid_action(:index) }
+    it { is_expected.to forbid_action(:create) }
   end
 
   context 'without user' do
@@ -23,6 +26,9 @@ RSpec.describe TaskPolicy do
     it { is_expected.to forbid_action(:edit) }
     it { is_expected.to forbid_action(:position) }
     it { is_expected.to forbid_action(:complete) }
+    it { is_expected.to forbid_action(:show) }
+    it { is_expected.to forbid_action(:index) }
+    it { is_expected.to forbid_action(:create) }
   end
 
   context 'with not persist user' do
@@ -34,5 +40,8 @@ RSpec.describe TaskPolicy do
     it { is_expected.to forbid_action(:edit) }
     it { is_expected.to forbid_action(:position) }
     it { is_expected.to forbid_action(:complete) }
+    it { is_expected.to forbid_action(:show) }
+    it { is_expected.to forbid_action(:index) }
+    it { is_expected.to forbid_action(:create) }
   end
 end

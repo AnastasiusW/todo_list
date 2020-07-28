@@ -6,9 +6,9 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def show
-    return not_authorize unless set_project
+    authorize(current_project)
 
-    render json: ProjectSerializer.new(@project).serialized_json, status: :ok
+    render json: ProjectSerializer.new(current_project).serialized_json, status: :ok
   end
 
   def create
@@ -19,29 +19,23 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def update
-    return not_authorize unless set_project
-    if @project.update(name: project_params[:name])
-      return render json: ProjectSerializer.new(@project).serialized_json, status: :ok
+    authorize(current_project)
+    if current_project.update(name: project_params[:name])
+      return render json: ProjectSerializer.new(current_project).serialized_json, status: :ok
     end
 
-    render json: { errors: @project.errors.full_messages }, status: :unprocessable_entity
+    render json: { errors: current_project.errors.full_messages }, status: :unprocessable_entity
   end
 
   def destroy
-    return not_authorize unless set_project
+    authorize(current_project)
 
-    @project.destroy
-    render json: {}, status: :ok
+    render json: {}, status: :ok if current_project.destroy
   end
 
   private
 
   def project_params
     params.permit(:name, :id)
-  end
-
-  def set_project
-    @project = Project.find_by(id: project_params[:id])
-    authorize @project if @project
   end
 end

@@ -2,9 +2,7 @@ class Api::V1::CommentsController < ApplicationController
   before_action :authorize_request
 
   def index
-    return not_authorize unless current_task
-
-    render json: CommentSerializer.new(current_task.comments).serialized_json, status: :ok
+    render json: CommentSerializer.new(find_task.comments).serialized_json, status: :ok if find_task
   end
 
   def create
@@ -15,9 +13,9 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def destroy
-    return not_authorize unless set_comment
+    authorize(current_comment)
 
-    render json: {}, status: :ok if @comment.destroy
+    render json: {}, status: :ok if current_comment.destroy
   end
 
   private
@@ -26,12 +24,7 @@ class Api::V1::CommentsController < ApplicationController
     params.permit(:task_id, :body, :file, :id)
   end
 
-  def set_comment
-    @comment = Comment.find_by(id: comment_params[:id])
-    authorize(@comment) if @comment
-  end
-
-  def current_task
-    Task.find_by(id: comment_params[:task_id])
+  def find_task
+    Task.find_by!(id: comment_params[:task_id])
   end
 end

@@ -25,6 +25,20 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       end
     end
 
+    context 'when input invalid headers' do
+      let(:params) { { project_id: project.id } }
+      let(:invalid_token) { nil }
+      let(:invalid_headers) { { authorization: invalid_token, accept: 'application/json' } }
+
+      before do
+        get "/api/v1/projects/#{project_id}/tasks", headers: invalid_headers, params: params
+      end
+
+      it 'show list of tasks and return status code 401', :dox do
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+
     context 'when input invalid project_id params' do
       let(:invalid_project) { 0 }
       let(:params) { { project_id: invalid_project } }
@@ -33,10 +47,9 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         get "/api/v1/projects/#{invalid_project}/tasks", headers: headers, params: params
       end
 
-      it 'show list of comments and return status code 401' do
+      it 'show list of comments and return status code 404' do
         expect(response.body).to match_json_schema('error')
-        expect(response.body).to include(I18n.t('errors.authorize_fail'))
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -67,8 +80,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       end
 
       it 'do not show task', :dox do
-        expect(response.body).to match_json_schema('error')
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -197,7 +209,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         end
 
         it 'do not update position', :dox do
-          expect(response).to have_http_status(:unauthorized)
+          expect(response).to have_http_status(:not_found)
         end
       end
     end
@@ -231,7 +243,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       end
 
       it 'do not update complete', :dox do
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -258,13 +270,13 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
     context 'when input invalid id task' do
       let(:params) { { id: invalid_id_task } }
 
-      it 'task will be deleted with success', :dox do
+      it 'task will be deleted with fail', :dox do
         expect do
           delete "/api/v1/projects/#{project_id}/tasks/#{invalid_id_task}",
                  headers: headers, params: params
         end .to change(Task, :count).by(0)
 
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

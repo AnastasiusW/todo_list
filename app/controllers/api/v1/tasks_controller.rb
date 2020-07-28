@@ -2,16 +2,12 @@ class Api::V1::TasksController < ApplicationController
   before_action :authorize_request
 
   def index
-    return not_authorize unless current_project
-
-    render json: TaskSerializer.new(current_project.tasks).serialized_json, status: :ok
+    render json: TaskSerializer.new(find_project_for_tasks.tasks).serialized_json, status: :ok if find_project_for_tasks
   end
 
   def show
-    return not_authorize unless set_task
-    return render json: TaskSerializer.new(@task).serialized_json, status: :ok if @task
-
-    render json: { errors: I18n.t('errors.tasks.task_not_found') }, status: :unprocessable_entity
+    authorize(current_task)
+    render json: TaskSerializer.new(current_task).serialized_json, status: :ok
   end
 
   def create
@@ -22,36 +18,39 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def update
-    return not_authorize unless set_task
+    authorize(current_task)
 
-    if @task.update(task_params)
-      render json: TaskSerializer.new(@task).serialized_json, status: :ok
+    if current_task.update(task_params)
+      render json: TaskSerializer.new(current_task).serialized_json, status: :ok
     else
-      render json: { errors: @task.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: current_task.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def position
-    return not_authorize unless set_task
-    if Task::Position.call(@task, task_params[:position])
-      return render  json: TaskSerializer.new(@task).serialized_json, status: :ok
+    authorize(current_task)
+
+    if Task::Position.call(current_task, task_params[:position])
+      return render  json: TaskSerializer.new(current_task).serialized_json, status: :ok
     end
 
-    render json: { errors: @task.errors.full_messages }, status: :unprocessable_entity
+    render json: { errors: current_task.errors.full_messages }, status: :unprocessable_entity
   end
 
   def complete
-    return not_authorize unless set_task
-    return render json: TaskSerializer.new(@task).serialized_json, status: :ok if @task.update(done: task_params[:done])
+    authorize(current_task)
 
-    render json: { errors: @task.errors.full_messages }, status: :unprocessable_entity
+    if current_task.update(done: task_params[:done])
+      return render json: TaskSerializer.new(current_task).serialized_json, status: :ok
+    end
+
+    render json: { errors: current_task.errors.full_messages }, status: :unprocessable_entity
   end
 
   def destroy
-    return not_authorize unless set_task
+    authorize(current_task)
 
-    @task.destroy
-    render json: {}, status: :ok
+    render json: {}, status: :ok if current_task.destroy
   end
 
   private
@@ -60,12 +59,7 @@ class Api::V1::TasksController < ApplicationController
     params.permit(:name, :project_id, :position, :id, :done, :deadline)
   end
 
-  def set_task
-    @task = Task.find_by(id: task_params[:id])
-    authorize @task if @task
-  end
-
-  def current_project
-    current_user.projects.find_by(id: task_params[:project_id])
+  def find_project_for_tasks
+    current_user.projects.find_by!(id: task_params[:project_id])
   end
 end

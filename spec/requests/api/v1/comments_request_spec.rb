@@ -37,10 +37,9 @@ RSpec.describe 'Api::V1::Comments', type: :request do
         get "/api/v1/projects/#{project_id}/tasks/#{invalid_task}/comments", headers: headers, params: params
       end
 
-      it 'show list of comments and return status code 401' do
+      it 'show list of comments and return status code 404' do
         expect(response.body).to match_json_schema('error')
-        expect(response.body).to include(I18n.t('errors.authorize_fail'))
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -98,7 +97,7 @@ RSpec.describe 'Api::V1::Comments', type: :request do
                  headers: headers, params: params
         end .to change(Task, :count).by(0)
 
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

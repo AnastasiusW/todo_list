@@ -1,29 +1,27 @@
 class ApplicationController < ActionController::API
   include Pundit
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  include ExceptionsHandler
 
   attr_reader :current_user
 
   def authorize_request
     header = request.headers['Authorization']
     header = header.split(' ').last if header
-    begin
-      @decoded = JsonWebToken.decode(header)
-      @current_user = User.find(@decoded[:user_id])
-    rescue ActiveRecord::RecordNotFound => e
-      render json: { errors: e.message }, status: :not_found
-    rescue JWT::DecodeError => e
-      render json: { errors: e.message }, status: :unauthorized
-    end
+    @decoded = JsonWebToken.decode(header)
+    @current_user = User.find(@decoded[:user_id])
   end
 
   private
 
-  def user_not_authorized
-    render json: { error: I18n.t('pundit.errors.user.warning') }, status: :access_denied
+  def current_project
+    @current_project ||= Project.find_by!(id: project_params[:id])
   end
 
-  def not_authorize
-    render json: { errors: [I18n.t('errors.authorize_fail')] }, status: :unauthorized
+  def current_task
+    @current_task ||= Task.find_by!(id: task_params[:id])
+  end
+
+  def current_comment
+    @current_comment ||= Comment.find_by!(id: comment_params[:id])
   end
 end

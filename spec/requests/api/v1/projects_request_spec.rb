@@ -22,16 +22,32 @@ RSpec.describe 'Api::V1::Projects', type: :request do
   describe 'SHOW api/v1/projects/:id' do
     include Docs::V1::Projects::Show
 
-    let(:params) {  { id: project.id } }
-    let(:project) { create(:project, user: user) }
+    context 'when input valid params' do
+      let(:params) { { id: project.id } }
+      let(:project) { create(:project, user: user) }
 
-    before do
-      get "/api/v1/projects/#{project.id}", headers: headers, params: params
+      before do
+        get "/api/v1/projects/#{project.id}", headers: headers, params: params
+      end
+
+      it 'return project of current user', :dox do
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to match_json_schema('project')
+      end
     end
 
-    it 'return project of current user', :dox do
-      expect(response).to have_http_status(:ok)
-      expect(response.body).to match_json_schema('project')
+    context 'when input invalid params, user2 have not access to project' do
+      let(:params) { { id: project.id } }
+      let(:user2) { create(:user) }
+      let(:project) { create(:project, user: user2) }
+
+      before do
+        get "/api/v1/projects/#{project.id}", headers: headers, params: params
+      end
+
+      it 'return 403 status', :dox do
+        expect(response).to have_http_status(:forbidden)
+      end
     end
   end
 
@@ -103,9 +119,9 @@ RSpec.describe 'Api::V1::Projects', type: :request do
         patch "/api/v1/projects/#{invalid_project_id}", headers: headers, params: params
       end
 
-      it 'with fails, because name is empty and project_id is nil with not_found, return status 401', :dox do
+      it 'with fails, because name is empty and project_id is nil with not_found, return status 404', :dox do
         expect(response.body).to match_json_schema('error')
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end
@@ -136,7 +152,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
           delete "/api/v1/projects/#{invalid_id_project}",
                  headers: headers, params: params
         end .to change(Project, :count).by(0)
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

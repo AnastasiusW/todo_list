@@ -8,6 +8,9 @@ RSpec.describe ProjectPolicy do
     it { is_expected.to permit_action(:destroy) }
     it { is_expected.to permit_action(:update) }
     it { is_expected.to permit_action(:edit) }
+    it { is_expected.to permit_action(:show) }
+    it { is_expected.to forbid_action(:index) }
+    it { is_expected.to forbid_action(:create) }
   end
 
   context 'without user' do
@@ -17,6 +20,9 @@ RSpec.describe ProjectPolicy do
     it { is_expected.to forbid_action(:destroy) }
     it { is_expected.to forbid_action(:update) }
     it { is_expected.to forbid_action(:edit) }
+    it { is_expected.to forbid_action(:show) }
+    it { is_expected.to forbid_action(:index) }
+    it { is_expected.to forbid_action(:create) }
   end
 
   context 'with not persist user' do
@@ -26,5 +32,8 @@ RSpec.describe ProjectPolicy do
     it { is_expected.to forbid_action(:destroy) }
     it { is_expected.to forbid_action(:update) }
     it { is_expected.to forbid_action(:edit) }
+    it { is_expected.to forbid_action(:show) }
+    it { is_expected.to forbid_action(:index) }
+    it { is_expected.to forbid_action(:create) }
   end
 end
