@@ -49,7 +49,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         get "/api/v1/projects/#{invalid_project}/tasks", headers: headers, params: params
       end
 
-      it 'show list of comments and return status code 404' do
+      it 'show list of comments and return status code 404', :dox do
         expect(response.body).to match_json_schema('standard_error')
         expect(response).to have_http_status(:not_found)
       end
@@ -206,7 +206,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
           patch "/api/v1/projects/#{project_id}/tasks/#{task2.id}/position", headers: headers, params: params
         end
 
-        it 'do not update position', :dox do
+        it 'do not update position, invalid position', :dox do
           expect(response.body).to match_json_schema('standard_error')
           expect(response).to have_http_status(:unprocessable_entity)
         end
@@ -220,7 +220,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
           patch "/api/v1/projects/#{project_id}/tasks/#{invalid_id_task}/position", headers: headers, params: params
         end
 
-        it 'do not update position', :dox do
+        it 'do not update position, invalid id task', :dox do
           expect(response).to have_http_status(:not_found)
         end
       end

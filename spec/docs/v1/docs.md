@@ -19,7 +19,7 @@
 
     + Body
 
-            user_name=warner_friesen&password=1ODLLmqQryo23a
+            user_name=Johana+Schowalter&password=NtOOwJXfaOZbo
 
 + Response 200
 
@@ -30,7 +30,7 @@
     + Body
 
             {
-              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzc0LCJleHAiOjE1OTUzNDkwNTh9.eh5ls9aI5TJbwcmu7TFnHraU82MsyqqDe70R5eAvKHM"
+              "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODY2LCJleHAiOjE1OTYxMjM2OTV9.TL4IviVJgBzGggXPs_ZdsITB0iZMdNIvVj-iztLBKGU"
             }
 
 + Request sign in with fail
@@ -54,7 +54,15 @@
     + Body
 
             {
-              "errors": "Invalid login"
+              "errors": [
+                {
+                  "source": {
+                    "pointer": "/api/v1/sign_in"
+                  },
+                  "detail": "translation missing: en.login",
+                  "status": "unauthorized"
+                }
+              ]
             }
 
 # Group Comments
@@ -66,16 +74,16 @@
 ### Get comments [GET /api/v1/projects/{project_id}/tasks/{task_id}/comments]
 
 + Parameters
-    + project_id: `1333` (number, required)
-    + task_id: `1156` (number, required)
+    + project_id: `6676` (number, required)
+    + task_id: `5268` (number, required)
 
 + Request show list of comments and return status code 200
-**GET**&nbsp;&nbsp;`/api/v1/projects/1333/tasks/1156/comments?task_id=1156`
+**GET**&nbsp;&nbsp;`/api/v1/projects/6676/tasks/5268/comments?task_id=5268`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzc1LCJleHAiOjE1OTUzNDkwNTh9.5kLg9yAUQ22g6Z76bI2NOQxHtho8-EluMkHb_z-KnlU
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODY3LCJleHAiOjE1OTYxMjM2OTZ9.gzfZFbRXzmCe1ircXhFcGfZhOKHiPd50Wj_fiND5vbE
 
 + Response 200
 
@@ -88,46 +96,46 @@
             {
               "data": [
                 {
-                  "id": "354",
+                  "id": "1007",
                   "type": "comment",
                   "attributes": {
-                    "body": "Sed sed quia fuga doloremque et nihil minus. Autem est fugit sint consequatur in vero.",
+                    "body": "Architecto voluptatem perspiciatis ut voluptate alias iste omnis aut. Tenetur laborum itaque soluta distinctio dolores eveniet mollitia nulla. Error sequi eos odit sapiente tenetur fugiat.",
                     "file": {
-                      "url": "/test/uploads/comment/file/354/test.jpg",
+                      "url": "/test/uploads/comment/file/1007/test.jpg",
                       "medium_img": {
-                        "url": "/test/uploads/comment/file/354/medium_img_test.jpg"
+                        "url": "/test/uploads/comment/file/1007/medium_img_test.jpg"
                       }
                     },
-                    "created_at": "2020-07-20T16:30:58.738Z",
-                    "updated_at": "2020-07-20T16:30:58.738Z"
+                    "created_at": "2020-07-29T15:41:36.042Z",
+                    "updated_at": "2020-07-29T15:41:36.042Z"
                   },
                   "relationships": {
                     "task": {
                       "data": {
-                        "id": "1156",
+                        "id": "5268",
                         "type": "task"
                       }
                     }
                   }
                 },
                 {
-                  "id": "355",
+                  "id": "1008",
                   "type": "comment",
                   "attributes": {
-                    "body": "Expedita quaerat eum dolore tempore laudantium. Qui rerum quam ipsam quo reprehenderit eos quis quisquam.",
+                    "body": "Quisquam et cum et alias numquam dolor quis et. Fugit voluptatem qui tenetur est non quis. Vel voluptatibus ut ad consectetur perferendis minus accusamus incidunt.",
                     "file": {
-                      "url": "/test/uploads/comment/file/355/test.jpg",
+                      "url": "/test/uploads/comment/file/1008/test.jpg",
                       "medium_img": {
-                        "url": "/test/uploads/comment/file/355/medium_img_test.jpg"
+                        "url": "/test/uploads/comment/file/1008/medium_img_test.jpg"
                       }
                     },
-                    "created_at": "2020-07-20T16:30:58.849Z",
-                    "updated_at": "2020-07-20T16:30:58.849Z"
+                    "created_at": "2020-07-29T15:41:36.135Z",
+                    "updated_at": "2020-07-29T15:41:36.135Z"
                   },
                   "relationships": {
                     "task": {
                       "data": {
-                        "id": "1156",
+                        "id": "5268",
                         "type": "task"
                       }
                     }
@@ -137,12 +145,12 @@
             }
 
 + Request show list of comments and return status code 404
-**GET**&nbsp;&nbsp;`/api/v1/projects/1334/tasks/0/comments?task_id=0`
+**GET**&nbsp;&nbsp;`/api/v1/projects/6677/tasks/0/comments?task_id=0`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzc2LCJleHAiOjE1OTUzNDkwNTl9.6e667MtrWtkxTzEhQbRI8B4kM3BP5HgRy3BCXuG6GcU
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODY4LCJleHAiOjE1OTYxMjM2OTZ9.o5nCDvcLEwKZk63YTrU1OI-rrHgABn5Fg7QCajeMtp4
 
 + Response 404
 
@@ -154,34 +162,40 @@
 
             {
               "errors": [
-                "Authorize was failed"
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6677/tasks/0/comments"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
               ]
             }
 
 ### Create comments [POST /api/v1/projects/{project_id}/tasks/{task_id}/comments]
 
 + Parameters
-    + project_id: `1335` (number, required)
-    + task_id: `1158` (number, required)
+    + project_id: `6678` (number, required)
+    + task_id: `5270` (number, required)
 
 + Request creates new comment and return status code 201
-**POST**&nbsp;&nbsp;`/api/v1/projects/1335/tasks/1158/comments`
+**POST**&nbsp;&nbsp;`/api/v1/projects/6678/tasks/5270/comments`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzc3LCJleHAiOjE1OTUzNDkwNTl9.ygYiJ9SvOKscb9gp9Uv9j3lCUL8-in4bGV0_bOs-gMs
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODY5LCJleHAiOjE1OTYxMjM2OTZ9.W62a1trhv4szurGHi1Qs1PMqJX-v6sXqc5YwNOEpbrU
             Content-Type: multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1
 
     + Body
 
             {
-              "body": "Adipisci libero qui maiores voluptates unde veritatis provident. Nemo voluptatem velit unde eius eveniet eos neque magnam.",
+              "body": "Recusandae nulla sed autem ipsum distinctio sit ullam. Nisi esse repudiandae qui omnis sapiente.",
               "file": {
                 "filename": "test.jpg",
                 "type": "image/jpg",
                 "name": "file",
-                "tempfile": "#<File:0x000000000481a610>",
+                "tempfile": "#<File:0x00000000052f5440>",
                 "head": "Content-Disposition: form-data; name=\"file\"; filename=\"test.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 225366\r\n"
               }
             }
@@ -196,23 +210,23 @@
 
             {
               "data": {
-                "id": "358",
+                "id": "1011",
                 "type": "comment",
                 "attributes": {
-                  "body": "Adipisci libero qui maiores voluptates unde veritatis provident. Nemo voluptatem velit unde eius eveniet eos neque magnam.",
+                  "body": "Recusandae nulla sed autem ipsum distinctio sit ullam. Nisi esse repudiandae qui omnis sapiente.",
                   "file": {
-                    "url": "/test/uploads/comment/file/358/test.jpg",
+                    "url": "/test/uploads/comment/file/1011/test.jpg",
                     "medium_img": {
-                      "url": "/test/uploads/comment/file/358/medium_img_test.jpg"
+                      "url": "/test/uploads/comment/file/1011/medium_img_test.jpg"
                     }
                   },
-                  "created_at": "2020-07-20T16:30:59.484Z",
-                  "updated_at": "2020-07-20T16:30:59.484Z"
+                  "created_at": "2020-07-29T15:41:36.685Z",
+                  "updated_at": "2020-07-29T15:41:36.685Z"
                 },
                 "relationships": {
                   "task": {
                     "data": {
-                      "id": "1158",
+                      "id": "5270",
                       "type": "task"
                     }
                   }
@@ -221,17 +235,17 @@
             }
 
 + Request do not create task
-**POST**&nbsp;&nbsp;`/api/v1/projects/1336/tasks/1159/comments`
+**POST**&nbsp;&nbsp;`/api/v1/projects/6679/tasks/5271/comments`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzc4LCJleHAiOjE1OTUzNDkwNTl9.RQNf2uUvvgBOEfbRHYiuKamrVg8Gmw_KKFVdvVxAKtM
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODcwLCJleHAiOjE1OTYxMjM2OTZ9.ILCGtlxWMvcd3BUOQY2wPSHv0ZDQ3zXCRqv6mYL5SJo
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            project_id=1336&task_id=1159&body=
+            project_id=6679&task_id=5271&body=
 
 + Response 422
 
@@ -243,30 +257,38 @@
 
             {
               "errors": [
-                "Body can't be blank",
-                "Body is too short (minimum is 10 characters)"
+                {
+                  "source": {
+                    "pointer": "data/attributes/body"
+                  },
+                  "detail": [
+                    "is too short (minimum is 10 characters)",
+                    "can't be blank"
+                  ],
+                  "status": "unprocessable_entity"
+                }
               ]
             }
 
 ### Delete comment [DELETE /api/v1/projects/{project_id}/tasks/{task_id}/comments/{id}]
 
 + Parameters
-    + project_id: `1337` (number, required)
-    + task_id: `1160` (number, required)
-    + id: `359` (number, required)
+    + project_id: `6680` (number, required)
+    + task_id: `5272` (number, required)
+    + id: `1012` (number, required)
 
 + Request task will be deleted with success
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/1337/tasks/1160/comments/359`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/6680/tasks/5272/comments/1012`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzc5LCJleHAiOjE1OTUzNDkwNTl9.d3QWlS431eHI54ZvHE15DY0dltbR-Wr5AysiX9tn9SI
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODcxLCJleHAiOjE1OTYxMjM2OTd9.I2eoGexoJt8JFLVZJynzro6pNbYm2Qh4foA6CDYDDAQ
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=359
+            id=1012
 
 + Response 200
 
@@ -279,13 +301,13 @@
             {
             }
 
-+ Request task will be deleted with success
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/1338/tasks/1161/comments/0`
++ Request task will be not deleted
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/6681/tasks/5273/comments/0`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzgwLCJleHAiOjE1OTUzNDkwNTl9.oKRxb_-FnbKtYsmuXgyO0oFwHcDxy7o67uukpZ0r3tk
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODcyLCJleHAiOjE1OTYxMjM2OTd9.DNyhRpiakSiRosXrGXlR7CeIGFmE0_9Td1kzpl408S8
             Content-Type: application/x-www-form-urlencoded
 
     + Body
@@ -302,7 +324,13 @@
 
             {
               "errors": [
-                "Authorize was failed"
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6681/tasks/5273/comments/0"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
               ]
             }
 
@@ -321,7 +349,7 @@
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzgxLCJleHAiOjE1OTUzNDkwNTl9.cri8iGAgHw5xNOEgEtgzfDtLKXIhYYrMZF7usBaPTT0
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODczLCJleHAiOjE1OTYxMjM2OTd9.hwJ312ixAA5JqiYFqsnQW5aCTlj22wkzkEDybTaS3kI
 
 + Response 200
 
@@ -334,17 +362,17 @@
             {
               "data": [
                 {
-                  "id": "1339",
+                  "id": "6682",
                   "type": "project",
                   "attributes": {
-                    "name": "et",
-                    "created_at": "2020-07-20T16:30:59.942Z",
-                    "updated_at": "2020-07-20T16:30:59.942Z"
+                    "name": "qui",
+                    "created_at": "2020-07-29T15:41:37.331Z",
+                    "updated_at": "2020-07-29T15:41:37.331Z"
                   },
                   "relationships": {
                     "user": {
                       "data": {
-                        "id": "1381",
+                        "id": "6873",
                         "type": "user"
                       }
                     },
@@ -356,17 +384,17 @@
                   }
                 },
                 {
-                  "id": "1340",
+                  "id": "6683",
                   "type": "project",
                   "attributes": {
-                    "name": "eos",
-                    "created_at": "2020-07-20T16:30:59.949Z",
-                    "updated_at": "2020-07-20T16:30:59.949Z"
+                    "name": "voluptatem",
+                    "created_at": "2020-07-29T15:41:37.338Z",
+                    "updated_at": "2020-07-29T15:41:37.338Z"
                   },
                   "relationships": {
                     "user": {
                       "data": {
-                        "id": "1381",
+                        "id": "6873",
                         "type": "user"
                       }
                     },
@@ -378,17 +406,17 @@
                   }
                 },
                 {
-                  "id": "1341",
+                  "id": "6684",
                   "type": "project",
                   "attributes": {
-                    "name": "aliquam",
-                    "created_at": "2020-07-20T16:30:59.955Z",
-                    "updated_at": "2020-07-20T16:30:59.955Z"
+                    "name": "aliquid",
+                    "created_at": "2020-07-29T15:41:37.344Z",
+                    "updated_at": "2020-07-29T15:41:37.344Z"
                   },
                   "relationships": {
                     "user": {
                       "data": {
-                        "id": "1381",
+                        "id": "6873",
                         "type": "user"
                       }
                     },
@@ -405,15 +433,15 @@
 ### Show project [GET /api/v1/projects/{id}]
 
 + Parameters
-    + id: `1342` (number, required)
+    + id: `6685` (number, required)
 
 + Request return project of current user
-**GET**&nbsp;&nbsp;`/api/v1/projects/1342?id=1342`
+**GET**&nbsp;&nbsp;`/api/v1/projects/6685?id=6685`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzgyLCJleHAiOjE1OTUzNDkwNjB9.TKCwiTKATDlKXBgrt56iS61c7NYDf5XhMHwwtApvk3Y
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODc0LCJleHAiOjE1OTYxMjM2OTd9.ni5HnHcC3iiZxbaiLBOTisK4osPMGHCD5RDaWy0z6uo
 
 + Response 200
 
@@ -425,17 +453,17 @@
 
             {
               "data": {
-                "id": "1342",
+                "id": "6685",
                 "type": "project",
                 "attributes": {
-                  "name": "est",
-                  "created_at": "2020-07-20T16:31:00.072Z",
-                  "updated_at": "2020-07-20T16:31:00.072Z"
+                  "name": "rerum",
+                  "created_at": "2020-07-29T15:41:37.466Z",
+                  "updated_at": "2020-07-29T15:41:37.466Z"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "1382",
+                      "id": "6874",
                       "type": "user"
                     }
                   },
@@ -448,6 +476,34 @@
               }
             }
 
++ Request return 403 status
+**GET**&nbsp;&nbsp;`/api/v1/projects/6686?id=6686`
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODc2LCJleHAiOjE1OTYxMjM2OTd9.AOzcX963tE-G7KEOB5jABeHPuNUM5LiDVLL-9rEtf4c
+
++ Response 403
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "errors": [
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6686"
+                  },
+                  "detail": "You are not authorized to perform this action.",
+                  "status": "forbidden"
+                }
+              ]
+            }
+
 ### Create projects [POST /api/v1/projects]
 
 
@@ -457,12 +513,12 @@
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzgzLCJleHAiOjE1OTUzNDkwNjB9.ZE44AoY3RJob4nzdS3tma0w8jrI2c9QG3acRV5GLW6g
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODc3LCJleHAiOjE1OTYxMjM2OTd9.K8vdvUhCr-eOrRCyJvTox0Tjukqn7ZFET5xPnDbaSW8
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            name=alias
+            name=architecto
 
 + Response 201
 
@@ -474,17 +530,17 @@
 
             {
               "data": {
-                "id": "1343",
+                "id": "6687",
                 "type": "project",
                 "attributes": {
-                  "name": "alias",
-                  "created_at": "2020-07-20T16:31:00.207Z",
-                  "updated_at": "2020-07-20T16:31:00.207Z"
+                  "name": "architecto",
+                  "created_at": "2020-07-29T15:41:37.709Z",
+                  "updated_at": "2020-07-29T15:41:37.709Z"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "1383",
+                      "id": "6877",
                       "type": "user"
                     }
                   },
@@ -503,12 +559,12 @@
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzg0LCJleHAiOjE1OTUzNDkwNjB9.2PiY_p86MXz9E9mK1lltdtsYAiCVX7QBT_JgktKP8Uo
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODc4LCJleHAiOjE1OTYxMjM2OTd9.yTrUJlCc2o4wO4lPDnohlKZe2POaGOL39mBJjlxbZ5w
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            name=dolor
+            name=aut
 
 + Response 422
 
@@ -520,27 +576,35 @@
 
             {
               "errors": [
-                "Name The project with such name does already exist"
+                {
+                  "source": {
+                    "pointer": "data/attributes/name"
+                  },
+                  "detail": [
+                    "translation missing: en.project_exist"
+                  ],
+                  "status": "unprocessable_entity"
+                }
               ]
             }
 
 ### Update project [PATCH /api/v1/projects/{id}]
 
 + Parameters
-    + id: `1345` (number, required)
+    + id: `6689` (number, required)
 
 + Request update task and return status 200
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1345`
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/6689`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzg1LCJleHAiOjE1OTUzNDkwNjB9.PTi5Kcvv7UWeANqAtuoONDggGt-3ur2AelPLQmp1v8I
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODc5LCJleHAiOjE1OTYxMjM2OTd9.Pagx_kmnC4ta6OtTxo7kxNmzOe7D4yjgNchPCOzSqyw
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1345&name=officia
+            id=6689&name=molestias
 
 + Response 200
 
@@ -552,17 +616,17 @@
 
             {
               "data": {
-                "id": "1345",
+                "id": "6689",
                 "type": "project",
                 "attributes": {
-                  "name": "officia",
-                  "created_at": "2020-07-20T16:31:00.392Z",
-                  "updated_at": "2020-07-20T16:31:00.412Z"
+                  "name": "molestias",
+                  "created_at": "2020-07-29T15:41:37.922Z",
+                  "updated_at": "2020-07-29T15:41:37.940Z"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "1385",
+                      "id": "6879",
                       "type": "user"
                     }
                   },
@@ -576,17 +640,17 @@
             }
 
 + Request with fails, because name is empty, return status 422
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1346`
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/6690`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzg2LCJleHAiOjE1OTUzNDkwNjB9.qLbcApbF3BBZyaxVqghgaVvnERRSGt0L1tWFaFhOEf8
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODgwLCJleHAiOjE1OTYxMjM2OTh9.WIXVxsc6ARCD0D_UEPwPmvwidL_HHo_R81ULIyGcgRQ
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1346&name=
+            id=6690&name=
 
 + Response 422
 
@@ -598,17 +662,25 @@
 
             {
               "errors": [
-                "Name can't be blank"
+                {
+                  "source": {
+                    "pointer": "data/attributes/name"
+                  },
+                  "detail": [
+                    "can't be blank"
+                  ],
+                  "status": "unprocessable_entity"
+                }
               ]
             }
 
-+ Request with fails, because name is empty and project_id is nil with not_found, return status 200
++ Request with fails, because name is empty and project_id is nil with not_found, return status 404
 **PATCH**&nbsp;&nbsp;`/api/v1/projects/0`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzg3LCJleHAiOjE1OTUzNDkwNjB9.KAfGUgVilWMjmNVvwY_hYlzFEK6KW1zM4R0azXilEMQ
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODgxLCJleHAiOjE1OTYxMjM2OTh9.ItJ8u2UF5Mr_dHhsWPRd_zBgI0umZuNFJePN00pB8vY
             Content-Type: application/x-www-form-urlencoded
 
     + Body
@@ -625,27 +697,33 @@
 
             {
               "errors": [
-                "Authorize was failed"
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/0"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
               ]
             }
 
 ### Delete project [DELETE /api/v1/projects/{id}]
 
 + Parameters
-    + id: `1347` (number, required)
+    + id: `6691` (number, required)
 
 + Request project will be destroyed with success
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/1347`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/6691`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzg4LCJleHAiOjE1OTUzNDkwNjB9.bD7rFFpEDgGmpU8OJsxhKhk_9CJ9AizBcuFBOJlOtQk
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODgyLCJleHAiOjE1OTYxMjM2OTh9.-b8J__cy5YEIdjB9hWF8SGl6ugCPzLikc3SxcfuECKk
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1347
+            id=6691
 
 + Response 200
 
@@ -664,7 +742,7 @@
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzg5LCJleHAiOjE1OTUzNDkwNjB9.2mRjS8SJAS_7v6OneCJk0WLOZLz6MSaRNYqX--1R3ew
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODgzLCJleHAiOjE1OTYxMjM2OTh9.vbwwz2__9DYeGMMHSPlJ5HObtNGmPaFvxG0Hsp_6G5A
             Content-Type: application/x-www-form-urlencoded
 
     + Body
@@ -681,7 +759,13 @@
 
             {
               "errors": [
-                "Authorize was failed"
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/0"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
               ]
             }
 
@@ -694,15 +778,15 @@
 ### Get tasks [GET /api/v1/projects/{project_id}/tasks]
 
 + Parameters
-    + project_id: `1349` (number, required)
+    + project_id: `6693` (number, required)
 
 + Request show list of tasks and return status code 200
-**GET**&nbsp;&nbsp;`/api/v1/projects/1349/tasks?project_id=1349`
+**GET**&nbsp;&nbsp;`/api/v1/projects/6693/tasks?project_id=6693`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzkwLCJleHAiOjE1OTUzNDkwNjB9.u03pYjM8AqrdkBYdIIj6ohh3liWbbTCjrk92QYM_a0s
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODg0LCJleHAiOjE1OTYxMjM2OTh9.esj299SdoeR_Wydr_3l5lGwasV4RWo1Hpc-HEjUMJ-U
 
 + Response 200
 
@@ -715,20 +799,20 @@
             {
               "data": [
                 {
-                  "id": "1162",
+                  "id": "5274",
                   "type": "task",
                   "attributes": {
-                    "name": "dignissimos",
+                    "name": "quis",
                     "position": 1,
-                    "deadline": "2020-07-22T16:31:00.785Z",
+                    "deadline": "2020-07-31T15:41:38.315Z",
                     "done": false,
-                    "created_at": "2020-07-20T16:31:00.786Z",
-                    "updated_at": "2020-07-20T16:31:00.786Z"
+                    "created_at": "2020-07-29T15:41:38.316Z",
+                    "updated_at": "2020-07-29T15:41:38.316Z"
                   },
                   "relationships": {
                     "project": {
                       "data": {
-                        "id": "1349",
+                        "id": "6693",
                         "type": "project"
                       }
                     },
@@ -740,20 +824,20 @@
                   }
                 },
                 {
-                  "id": "1163",
+                  "id": "5275",
                   "type": "task",
                   "attributes": {
-                    "name": "non",
+                    "name": "quo",
                     "position": 2,
-                    "deadline": "2020-07-22T16:31:00.793Z",
+                    "deadline": "2020-07-31T15:41:38.323Z",
                     "done": false,
-                    "created_at": "2020-07-20T16:31:00.794Z",
-                    "updated_at": "2020-07-20T16:31:00.794Z"
+                    "created_at": "2020-07-29T15:41:38.324Z",
+                    "updated_at": "2020-07-29T15:41:38.324Z"
                   },
                   "relationships": {
                     "project": {
                       "data": {
-                        "id": "1349",
+                        "id": "6693",
                         "type": "project"
                       }
                     },
@@ -767,19 +851,74 @@
               ]
             }
 
-### Show task [GET /api/v1/projects/{project_id}/tasks/{id}]
-
-+ Parameters
-    + project_id: `1350` (number, required)
-    + id: `1164` (number, required)
-
-+ Request return tasks of project
-**GET**&nbsp;&nbsp;`/api/v1/projects/1350/tasks/1164?id=1164&project_id=1350`
++ Request show list of tasks and return status code 401
+**GET**&nbsp;&nbsp;`/api/v1/projects/6694/tasks?project_id=6694`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzkxLCJleHAiOjE1OTUzNDkwNjB9.TsXmdKYkgsUI-EZ9jgn8LFV3dvJKh4hSrLKw8qc1oNM
+
++ Response 401
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "errors": [
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6694/tasks"
+                  },
+                  "detail": "Authenticate is fail",
+                  "status": "unauthorized"
+                }
+              ]
+            }
+
++ Request show list of comments and return status code 404
+**GET**&nbsp;&nbsp;`/api/v1/projects/0/tasks?project_id=0`
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODg2LCJleHAiOjE1OTYxMjM2OTh9.jw4BczQ43K3wrANXWO5pcqghGvwqfgO5THWQoh6_xD0
+
++ Response 404
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "errors": [
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/0/tasks"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
+              ]
+            }
+
+### Show task [GET /api/v1/projects/{project_id}/tasks/{id}]
+
++ Parameters
+    + project_id: `6696` (number, required)
+    + id: `5280` (number, required)
+
++ Request return tasks of project
+**GET**&nbsp;&nbsp;`/api/v1/projects/6696/tasks/5280?id=5280&project_id=6696`
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODg3LCJleHAiOjE1OTYxMjM2OTh9.pGe4QpIgfYiTkLPilhDdPSdsfxpvkGDcY9AV3hscwDk
 
 + Response 200
 
@@ -791,20 +930,20 @@
 
             {
               "data": {
-                "id": "1164",
+                "id": "5280",
                 "type": "task",
                 "attributes": {
-                  "name": "nisi",
+                  "name": "ut",
                   "position": 1,
-                  "deadline": "2020-07-22T16:31:00.937Z",
+                  "deadline": "2020-07-31T15:41:38.687Z",
                   "done": false,
-                  "created_at": "2020-07-20T16:31:00.938Z",
-                  "updated_at": "2020-07-20T16:31:00.938Z"
+                  "created_at": "2020-07-29T15:41:38.688Z",
+                  "updated_at": "2020-07-29T15:41:38.688Z"
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "1350",
+                      "id": "6696",
                       "type": "project"
                     }
                   },
@@ -818,12 +957,12 @@
             }
 
 + Request do not show task
-**GET**&nbsp;&nbsp;`/api/v1/projects/1351/tasks/0?id=0`
+**GET**&nbsp;&nbsp;`/api/v1/projects/6697/tasks/0?id=0`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzkyLCJleHAiOjE1OTUzNDkwNjF9.LFPar1Ne1oSEvjcoOMJ56H9hLyRmCBV-q4p9ZQawMCI
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODg4LCJleHAiOjE1OTYxMjM2OTh9.llmRqNGmUhMf22LjMHPaKiYTAiYFMtdx5NnCukxhpt4
 
 + Response 404
 
@@ -835,27 +974,33 @@
 
             {
               "errors": [
-                "Authorize was failed"
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6697/tasks/0"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
               ]
             }
 
 ### Create tasks [POST /api/v1/projects/{project_id}/tasks]
 
 + Parameters
-    + project_id: `1352` (number, required)
+    + project_id: `6698` (number, required)
 
 + Request create new task and return status code 201
-**POST**&nbsp;&nbsp;`/api/v1/projects/1352/tasks`
+**POST**&nbsp;&nbsp;`/api/v1/projects/6698/tasks`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzkzLCJleHAiOjE1OTUzNDkwNjF9.Wor2uWNw_Il3hm4J78NY978Rqb6aP_RF2o0MIbvO48Y
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODg5LCJleHAiOjE1OTYxMjM2OTh9.XsEODmH518amk-NOCUtGZ1LPtCmXq9hM2SYNYeU2BzI
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            project_id=1352&name=qui&deadline=2020-07-22T19%3A31%3A01%2B03%3A00
+            project_id=6698&name=commodi&deadline=2020-07-31T18%3A41%3A38%2B03%3A00
 
 + Response 201
 
@@ -867,20 +1012,20 @@
 
             {
               "data": {
-                "id": "1165",
+                "id": "5281",
                 "type": "task",
                 "attributes": {
-                  "name": "qui",
+                  "name": "commodi",
                   "position": 1,
-                  "deadline": "2020-07-22T16:31:01.000Z",
+                  "deadline": "2020-07-31T15:41:38.000Z",
                   "done": false,
-                  "created_at": "2020-07-20T16:31:01.163Z",
-                  "updated_at": "2020-07-20T16:31:01.163Z"
+                  "created_at": "2020-07-29T15:41:38.841Z",
+                  "updated_at": "2020-07-29T15:41:38.841Z"
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "1352",
+                      "id": "6698",
                       "type": "project"
                     }
                   },
@@ -894,17 +1039,17 @@
             }
 
 + Request do not create task, because inputs empty task name
-**POST**&nbsp;&nbsp;`/api/v1/projects/1353/tasks`
+**POST**&nbsp;&nbsp;`/api/v1/projects/6699/tasks`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzk0LCJleHAiOjE1OTUzNDkwNjF9.2IUdZtEsWh_Ka599ZLv9ZSOUF0HHnbLS_AZP5aL2O1c
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODkwLCJleHAiOjE1OTYxMjM2OTh9.KEAOWfthLwawDsBcyo4iW88VhEDXQ8GJbhx6jk2d6No
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            project_id=1353&name=
+            project_id=6699&name=
 
 + Response 422
 
@@ -916,28 +1061,36 @@
 
             {
               "errors": [
-                "Name can't be blank"
+                {
+                  "source": {
+                    "pointer": "data/attributes/name"
+                  },
+                  "detail": [
+                    "can't be blank"
+                  ],
+                  "status": "unprocessable_entity"
+                }
               ]
             }
 
 ### Update task [PUT /api/v1/projects/{project_id}/tasks/{id}]
 
 + Parameters
-    + project_id: `1354` (number, required)
-    + id: `1166` (number, required)
+    + project_id: `6700` (number, required)
+    + id: `5282` (number, required)
 
 + Request update task and return status 200
-**PUT**&nbsp;&nbsp;`/api/v1/projects/1354/tasks/1166`
+**PUT**&nbsp;&nbsp;`/api/v1/projects/6700/tasks/5282`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzk1LCJleHAiOjE1OTUzNDkwNjF9.CAxc1qX-6MOpv3PjewH2-zOuJ1BbyW0dRp8NV5Y8IGE
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODkxLCJleHAiOjE1OTYxMjM2OTl9.oBsAEbQhgDjmJq2Pm2bZZraKC8v9QNmOIf4voslJTqA
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1166&name=harum
+            id=5282&name=quidem
 
 + Response 200
 
@@ -949,20 +1102,20 @@
 
             {
               "data": {
-                "id": "1166",
+                "id": "5282",
                 "type": "task",
                 "attributes": {
-                  "name": "harum",
+                  "name": "quidem",
                   "position": 1,
-                  "deadline": "2020-07-22T16:31:01.359Z",
+                  "deadline": "2020-07-31T15:41:39.056Z",
                   "done": false,
-                  "created_at": "2020-07-20T16:31:01.360Z",
-                  "updated_at": "2020-07-20T16:31:01.382Z"
+                  "created_at": "2020-07-29T15:41:39.056Z",
+                  "updated_at": "2020-07-29T15:41:39.078Z"
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "1354",
+                      "id": "6700",
                       "type": "project"
                     }
                   },
@@ -976,17 +1129,17 @@
             }
 
 + Request update task and return status 200
-**PUT**&nbsp;&nbsp;`/api/v1/projects/1355/tasks/1167`
+**PUT**&nbsp;&nbsp;`/api/v1/projects/6701/tasks/5283`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzk2LCJleHAiOjE1OTUzNDkwNjF9.SXTgQu1I-X9LLnu3vj6Epn8OEko4u3XpZQzRnv9LONY
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODkyLCJleHAiOjE1OTYxMjM2OTl9.H9bMZsKV54OlEi4rL1ogFeLEjTudvsBccuKJFs67ta0
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1167&deadline=2020-07-22T19%3A31%3A01%2B03%3A00
+            id=5283&deadline=2020-07-31T18%3A41%3A39%2B03%3A00
 
 + Response 200
 
@@ -998,20 +1151,20 @@
 
             {
               "data": {
-                "id": "1167",
+                "id": "5283",
                 "type": "task",
                 "attributes": {
-                  "name": "aut",
+                  "name": "vel",
                   "position": 1,
-                  "deadline": "2020-07-22T16:31:01.000Z",
+                  "deadline": "2020-07-31T15:41:39.000Z",
                   "done": false,
-                  "created_at": "2020-07-20T16:31:01.493Z",
-                  "updated_at": "2020-07-20T16:31:01.514Z"
+                  "created_at": "2020-07-29T15:41:39.191Z",
+                  "updated_at": "2020-07-29T15:41:39.212Z"
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "1355",
+                      "id": "6701",
                       "type": "project"
                     }
                   },
@@ -1024,122 +1177,18 @@
               }
             }
 
-### Update position [PATCH /api/v1/projects/{project_id}/tasks/{id}/position]
-
-+ Parameters
-    + project_id: `1356` (number, required)
-    + id: `1169` (number, required)
-
-+ Request update task and return status 200
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1356/tasks/1169/position`
++ Request update task and return status 422
+**PUT**&nbsp;&nbsp;`/api/v1/projects/6702/tasks/5284`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzk3LCJleHAiOjE1OTUzNDkwNjF9.beIZqDwFJ5-rogrfJSEZ2PLZPgMMihrTFBTTA5a9RR0
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODkzLCJleHAiOjE1OTYxMjM2OTl9.ZMklRtE0srWZEbx-to8dhCX2fVW66ibLZDUeXZpkt3M
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1169&position=move_up
-
-+ Response 200
-
-    + Headers
-
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "data": {
-                "id": "1169",
-                "type": "task",
-                "attributes": {
-                  "name": "rem",
-                  "position": 1,
-                  "deadline": "2020-07-22T16:31:01.661Z",
-                  "done": false,
-                  "created_at": "2020-07-20T16:31:01.664Z",
-                  "updated_at": "2020-07-20T16:31:01.754Z"
-                },
-                "relationships": {
-                  "project": {
-                    "data": {
-                      "id": "1356",
-                      "type": "project"
-                    }
-                  },
-                  "comments": {
-                    "data": [
-            
-                    ]
-                  }
-                }
-              }
-            }
-
-+ Request update task and return status 200
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1357/tasks/1172/position`
-
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzk4LCJleHAiOjE1OTUzNDkwNjJ9.G7i3L5OYveb2V-cE6-B8RsFtTUMblAT3FI0YgyXA2Ow
-            Content-Type: application/x-www-form-urlencoded
-
-    + Body
-
-            id=1172&position=move_down
-
-+ Response 200
-
-    + Headers
-
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "data": {
-                "id": "1172",
-                "type": "task",
-                "attributes": {
-                  "name": "neque",
-                  "position": 3,
-                  "deadline": "2020-07-22T16:31:01.993Z",
-                  "done": false,
-                  "created_at": "2020-07-20T16:31:01.994Z",
-                  "updated_at": "2020-07-20T16:31:02.057Z"
-                },
-                "relationships": {
-                  "project": {
-                    "data": {
-                      "id": "1357",
-                      "type": "project"
-                    }
-                  },
-                  "comments": {
-                    "data": [
-            
-                    ]
-                  }
-                }
-              }
-            }
-
-+ Request do not update position
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1358/tasks/1175/position`
-
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzk5LCJleHAiOjE1OTUzNDkwNjJ9.AIVnu-67PKGIEkWiOjxrDqgyKHidRB1TBX3yycx2FWM
-            Content-Type: application/x-www-form-urlencoded
-
-    + Body
-
-            id=1175&position=eius
+            id=5284&name=
 
 + Response 422
 
@@ -1151,17 +1200,162 @@
 
             {
               "errors": [
-            
+                {
+                  "source": {
+                    "pointer": "data/attributes/name"
+                  },
+                  "detail": [
+                    "can't be blank"
+                  ],
+                  "status": "unprocessable_entity"
+                }
               ]
             }
 
-+ Request do not update position
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1359/tasks/0/position`
+### Update position [PATCH /api/v1/projects/{project_id}/tasks/{id}/position]
+
++ Parameters
+    + project_id: `6703` (number, required)
+    + id: `5286` (number, required)
+
++ Request update task and return status 200
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/6703/tasks/5286/position`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNDAwLCJleHAiOjE1OTUzNDkwNjJ9.ZMR6JoMtEMqJ79iWxMxHOgZPtqrjx-4TYfPZ_u2nzWI
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODk0LCJleHAiOjE1OTYxMjM2OTl9.EXM5kTxNXqvXZ3eqwEbVOKgfSxx64Z5nKmCZs5XFU7Y
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            id=5286&position=move_up
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "data": {
+                "id": "5286",
+                "type": "task",
+                "attributes": {
+                  "name": "fuga",
+                  "position": 1,
+                  "deadline": "2020-07-31T15:41:39.379Z",
+                  "done": false,
+                  "created_at": "2020-07-29T15:41:39.382Z",
+                  "updated_at": "2020-07-29T15:41:39.477Z"
+                },
+                "relationships": {
+                  "project": {
+                    "data": {
+                      "id": "6703",
+                      "type": "project"
+                    }
+                  },
+                  "comments": {
+                    "data": [
+            
+                    ]
+                  }
+                }
+              }
+            }
+
++ Request update task and return status 200
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/6704/tasks/5289/position`
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODk1LCJleHAiOjE1OTYxMjM2OTl9.-H0pj4qvyTZ0NTPdBQX-b8aa9k7Qyy2Y7CL2euSd2nw
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            id=5289&position=move_down
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "data": {
+                "id": "5289",
+                "type": "task",
+                "attributes": {
+                  "name": "autem",
+                  "position": 3,
+                  "deadline": "2020-07-31T15:41:39.724Z",
+                  "done": false,
+                  "created_at": "2020-07-29T15:41:39.725Z",
+                  "updated_at": "2020-07-29T15:41:39.786Z"
+                },
+                "relationships": {
+                  "project": {
+                    "data": {
+                      "id": "6704",
+                      "type": "project"
+                    }
+                  },
+                  "comments": {
+                    "data": [
+            
+                    ]
+                  }
+                }
+              }
+            }
+
++ Request do not update position, invalid position
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/6705/tasks/5292/position`
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODk2LCJleHAiOjE1OTYxMjM2OTl9.xDDHqtSSmrBw2bwJe0Js1pt8AlYyv6ZVNqItPQb6D3Y
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            id=5292&position=omnis
+
++ Response 422
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "errors": [
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6705/tasks/5292/position"
+                  },
+                  "detail": "Wrong postion parameter",
+                  "status": "unprocessable_entity"
+                }
+              ]
+            }
+
++ Request do not update position, invalid id task
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/6706/tasks/0/position`
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODk3LCJleHAiOjE1OTYxMjM3MDB9.IzCriSfcudjCh68_1HcBj4U9tzSu4hD0JojOIBayagU
             Content-Type: application/x-www-form-urlencoded
 
     + Body
@@ -1178,28 +1372,34 @@
 
             {
               "errors": [
-                "Authorize was failed"
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6706/tasks/0/position"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
               ]
             }
 
 ### Update complete [PATCH /api/v1/projects/{project_id}/tasks/{id}/complete]
 
 + Parameters
-    + project_id: `1360` (number, required)
-    + id: `1180` (number, required)
+    + project_id: `6707` (number, required)
+    + id: `5297` (number, required)
 
 + Request update task and return status 200
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1360/tasks/1180/complete`
+**PATCH**&nbsp;&nbsp;`/api/v1/projects/6707/tasks/5297/complete`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNDAxLCJleHAiOjE1OTUzNDkwNjJ9.1wESbD0AN1PVOGf3HlwVjXe2b0cmPgwth7xh8LuYHLg
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODk4LCJleHAiOjE1OTYxMjM3MDB9.PxznUlBPOeiQGBGHlDwko-T-aCm-qkxR81G_KBDoM8M
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1180&done=true
+            id=5297&done=true
 
 + Response 200
 
@@ -1211,20 +1411,20 @@
 
             {
               "data": {
-                "id": "1180",
+                "id": "5297",
                 "type": "task",
                 "attributes": {
-                  "name": "alias",
+                  "name": "veniam",
                   "position": 1,
-                  "deadline": "2020-07-22T16:31:02.384Z",
+                  "deadline": "2020-07-31T15:41:40.102Z",
                   "done": true,
-                  "created_at": "2020-07-20T16:31:02.385Z",
-                  "updated_at": "2020-07-20T16:31:02.410Z"
+                  "created_at": "2020-07-29T15:41:40.103Z",
+                  "updated_at": "2020-07-29T15:41:40.125Z"
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "1360",
+                      "id": "6707",
                       "type": "project"
                     }
                   },
@@ -1237,51 +1437,24 @@
               }
             }
 
-+ Request do not update complete
-**PATCH**&nbsp;&nbsp;`/api/v1/projects/1361/tasks/0/complete`
-
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNDAyLCJleHAiOjE1OTUzNDkwNjJ9.IMBgzMlbNjc1Yb5uNHg_yaVHpeipt2cZI1ovHDyRfQM
-            Content-Type: application/x-www-form-urlencoded
-
-    + Body
-
-            id=1181&done=
-
-+ Response 404
-
-    + Headers
-
-            Content-Type: application/json; charset=utf-8
-
-    + Body
-
-            {
-              "errors": [
-                "Authorize was failed"
-              ]
-            }
-
 ### Delete task [DELETE /api/v1/projects/{project_id}/tasks/{id}]
 
 + Parameters
-    + project_id: `1362` (number, required)
-    + id: `1182` (number, required)
+    + project_id: `6708` (number, required)
+    + id: `5298` (number, required)
 
 + Request task will be deleted with success
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/1362/tasks/1182`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/6708/tasks/5298`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNDAzLCJleHAiOjE1OTUzNDkwNjJ9.2886827q1Vtb50LwiTGBS8oRGGUTk1Mmhgc5L9HN9hQ
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2ODk5LCJleHAiOjE1OTYxMjM3MDB9.jhZOrYEqHVews0b9bIhDvLCj2N6E4DL8f4Nm-DOiWuA
             Content-Type: application/x-www-form-urlencoded
 
     + Body
 
-            id=1182
+            id=5298
 
 + Response 200
 
@@ -1294,13 +1467,13 @@
             {
             }
 
-+ Request task will be deleted with success
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/1363/tasks/0`
++ Request task will be deleted with fail
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/6709/tasks/0`
 
     + Headers
 
             Accept: application/json
-            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxNDA0LCJleHAiOjE1OTUzNDkwNjJ9.W6MntypDU2cM8nD0qB2OCQMK2Z1-9zQFWNo-HVL8dI0
+            Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2OTAwLCJleHAiOjE1OTYxMjM3MDB9.VXgqljyjQ6000QDgbwVYVFh6n3V0ZKqfLbwXxh6XKaQ
             Content-Type: application/x-www-form-urlencoded
 
     + Body
@@ -1317,7 +1490,13 @@
 
             {
               "errors": [
-                "Authorize was failed"
+                {
+                  "source": {
+                    "pointer": "/api/v1/projects/6709/tasks/0"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+                }
               ]
             }
 
@@ -1340,7 +1519,7 @@
 
     + Body
 
-            user_name=dorothy_lesch&password=S_J0d7TogUYd&password_confirmation=S_J0d7TogUYd
+            user_name=Terica+Davis&password=Oei5krjJO_&password_confirmation=Oei5krjJO_
 
 + Response 201
 
@@ -1352,13 +1531,13 @@
 
             {
               "data": {
-                "id": "1405",
+                "id": "6901",
                 "type": "user",
                 "attributes": {
-                  "user_name": "dorothy_lesch",
-                  "password_digest": "$2a$04$c.bAQv.4CfPafYRe4ggLwOsyCsosZtxnEmA2eUjBY6QQBvt9fNwlK",
-                  "created_at": "2020-07-20T16:31:02.666Z",
-                  "updated_at": "2020-07-20T16:31:02.666Z"
+                  "user_name": "Terica Davis",
+                  "password_digest": "$2a$04$.Zjw6wgN0Hiy7yfDETM.LufRmjypmmYe6GSFHvAere.Ctyn3h7R.e",
+                  "created_at": "2020-07-29T15:41:40.342Z",
+                  "updated_at": "2020-07-29T15:41:40.342Z"
                 },
                 "relationships": {
                   "projects": {
@@ -1392,8 +1571,24 @@
 
             {
               "errors": [
-                "Password confirmation doesn't match Password",
-                "User name can't be blank",
-                "User name is too short (minimum is 3 characters)"
+                {
+                  "source": {
+                    "pointer": "data/attributes/password_confirmation"
+                  },
+                  "detail": [
+                    "doesn't match Password"
+                  ],
+                  "status": "unprocessable_entity"
+                },
+                {
+                  "source": {
+                    "pointer": "data/attributes/user_name"
+                  },
+                  "detail": [
+                    "can't be blank",
+                    "is too short (minimum is 3 characters)"
+                  ],
+                  "status": "unprocessable_entity"
+                }
               ]
             }
