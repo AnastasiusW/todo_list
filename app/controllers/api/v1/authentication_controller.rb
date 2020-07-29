@@ -4,7 +4,7 @@ class Api::V1::AuthenticationController < ApplicationController
     if user&.authenticate(user_params[:password])
       render json: { token: JsonWebToken.encode(user_id: user.id) }, status: :ok
     else
-      render json: { errors: I18n.t('.login') }, status: :unauthorized
+      standard_error(I18n.t('.login'), :unauthorized)
     end
   end
 

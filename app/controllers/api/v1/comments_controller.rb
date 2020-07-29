@@ -9,7 +9,7 @@ class Api::V1::CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     return render json: CommentSerializer.new(comment).serialized_json, status: :created if comment.save
 
-    render json: { errors: comment.errors.full_messages }, status: :unprocessable_entity
+    validation_error(comment.errors, :unprocessable_entity)
   end
 
   def destroy

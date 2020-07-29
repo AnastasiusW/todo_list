@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
     user = User.new(user_params)
     return render json: UserSerializer.new(user).serialized_json, status: :created if user.save
 
-    render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+    validation_error(user.errors, :unprocessable_entity)
   end
 
   private

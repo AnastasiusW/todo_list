@@ -35,6 +35,8 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       end
 
       it 'show list of tasks and return status code 401', :dox do
+        expect(response.body).to match_json_schema('standard_error')
+
         expect(response).to have_http_status(:unauthorized)
       end
     end
@@ -48,7 +50,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       end
 
       it 'show list of comments and return status code 404' do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('standard_error')
         expect(response).to have_http_status(:not_found)
       end
     end
@@ -108,7 +110,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
       let(:params) { { project_id: project.id, name: '' } }
 
       it 'do not create task, because inputs empty task name', :dox do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('validation_error')
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -205,7 +207,7 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         end
 
         it 'do not update position', :dox do
-          expect(response.body).to match_json_schema('error')
+          expect(response.body).to match_json_schema('standard_error')
           expect(response).to have_http_status(:unprocessable_entity)
         end
       end

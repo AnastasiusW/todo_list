@@ -15,7 +15,7 @@ class Api::V1::ProjectsController < ApplicationController
     project = current_user.projects.new(name: project_params[:name], user: current_user)
     return render json: ProjectSerializer.new(project).serialized_json, status: :created if project.save
 
-    render json: { errors: project.errors.full_messages }, status: :unprocessable_entity
+    validation_error(project.errors, :unprocessable_entity)
   end
 
   def update
@@ -24,7 +24,7 @@ class Api::V1::ProjectsController < ApplicationController
       return render json: ProjectSerializer.new(current_project).serialized_json, status: :ok
     end
 
-    render json: { errors: current_project.errors.full_messages }, status: :unprocessable_entity
+    validation_error(current_project.errors, :unprocessable_entity)
   end
 
   def destroy

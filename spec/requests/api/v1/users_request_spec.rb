@@ -21,7 +21,7 @@ RSpec.describe 'Api::V1::Users', type: :request do
       let(:user_params) { { user_name: '', password: 'password', password_confirmation: 'wrong' } }
 
       it 'sign up user with empty user_name and wrong password_confirmation', :dox do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('validation_error')
 
         expect(response).to have_http_status(:unprocessable_entity)
         expect(User.count).to eq(0)

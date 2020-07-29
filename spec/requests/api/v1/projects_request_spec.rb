@@ -46,6 +46,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       end
 
       it 'return 403 status', :dox do
+        expect(response.body).to match_json_schema('standard_error')
         expect(response).to have_http_status(:forbidden)
       end
     end
@@ -73,7 +74,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       let(:params) { { name: project.name } }
 
       it 'test fail, because inputs exist`s project name, return status 422', :dox do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('validation_error')
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -106,7 +107,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       end
 
       it 'with fails, because name is empty, return status 422', :dox do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('validation_error')
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -120,7 +121,7 @@ RSpec.describe 'Api::V1::Projects', type: :request do
       end
 
       it 'with fails, because name is empty and project_id is nil with not_found, return status 404', :dox do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('standard_error')
         expect(response).to have_http_status(:not_found)
       end
     end

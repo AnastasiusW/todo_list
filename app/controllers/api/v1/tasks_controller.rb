@@ -14,7 +14,7 @@ class Api::V1::TasksController < ApplicationController
     task = Task.new(task_params)
     return render json: TaskSerializer.new(task).serialized_json, status: :created if task.save
 
-    render json: { errors: task.errors.full_messages }, status: :unprocessable_entity
+    validation_error(task.errors, :unprocessable_entity)
   end
 
   def update
@@ -23,7 +23,7 @@ class Api::V1::TasksController < ApplicationController
     if current_task.update(task_params)
       render json: TaskSerializer.new(current_task).serialized_json, status: :ok
     else
-      render json: { errors: current_task.errors.full_messages }, status: :unprocessable_entity
+      validation_error(current_task.errors, :unprocessable_entity)
     end
   end
 
@@ -31,10 +31,10 @@ class Api::V1::TasksController < ApplicationController
     authorize(current_task)
 
     if Task::Position.call(current_task, task_params[:position])
-      return render  json: TaskSerializer.new(current_task).serialized_json, status: :ok
+      return render json: TaskSerializer.new(current_task).serialized_json, status: :ok
     end
 
-    render json: { errors: current_task.errors.full_messages }, status: :unprocessable_entity
+    standard_error(I18n.t('errors.tasks.position'), :unprocessable_entity)
   end
 
   def complete
@@ -43,7 +43,7 @@ class Api::V1::TasksController < ApplicationController
       return render json: TaskSerializer.new(current_task).serialized_json, status: :ok
     end
 
-    render json: { errors: current_task.errors.full_messages }, status: :unprocessable_entity
+    validation_error(current_task.errors, :unprocessable_entity)
   end
 
   def destroy

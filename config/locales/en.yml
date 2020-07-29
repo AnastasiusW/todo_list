@@ -4,12 +4,12 @@ en:
 
   errors:
     login: Invalid login
-    authorize_fail: Authorize was failed
+    not_found: Record not found
+    authenticate_fail: Authenticate is fail
     projects:
       project_exist: The project with such name does already exist
-      project_not_found: Project not found
     tasks:
-      task_not_found: Task not found
+      position: Wrong postion parameter
     comment:
       file_size: An uploaded file is too large. The size shouldn’t exceed 10 MB
 

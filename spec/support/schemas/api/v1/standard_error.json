@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+      {
+          "errors": [
+              {
+                  "source": {
+                      "pointer": "/api/v1/projects/0"
+                  },
+                  "detail": "Record not found",
+                  "status": "not_found"
+              }
+          ]
+      }
+  ],
+  "required": [
+      "errors"
+  ],
+  "properties": {
+      "errors": {
+          "$id": "#/properties/errors",
+          "type": "array",
+          "title": "The errors schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+              [
+                  {
+                      "source": {
+                          "pointer": "/api/v1/projects/0"
+                      },
+                      "detail": "Record not found",
+                      "status": "not_found"
+                  }
+              ]
+          ],
+          "additionalItems": true,
+          "items": {
+              "$id": "#/properties/errors/items/0",
+              "type": "object",
+              "title": "The first items schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                  {
+                      "source": {
+                          "pointer": "/api/v1/projects/0"
+                      },
+                      "detail": "Record not found",
+                      "status": "not_found"
+                  }
+              ],
+              "required": [
+                  "source",
+                  "detail",
+                  "status"
+              ],
+              "properties": {
+                  "source": {
+                      "$id": "#/properties/errors/items/0/properties/source",
+                      "type": "object",
+                      "title": "The source schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "examples": [
+                          {
+                              "pointer": "/api/v1/projects/0"
+                          }
+                      ],
+                      "required": [
+                          "pointer"
+                      ],
+                      "properties": {
+                          "pointer": {
+                              "$id": "#/properties/errors/items/0/properties/source/properties/pointer",
+                              "type": "string",
+                              "title": "The pointer schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                  "/api/v1/projects/0"
+                              ]
+                          }
+                      },
+                      "additionalProperties": true
+                  },
+                  "detail": {
+                      "$id": "#/properties/errors/items/0/properties/detail",
+                      "type": "string",
+                      "title": "The detail schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "Record not found"
+                      ]
+                  },
+                  "status": {
+                      "$id": "#/properties/errors/items/0/properties/status",
+                      "type": "string",
+                      "title": "The status schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "not_found"
+                      ]
+                  }
+              },
+              "additionalProperties": true
+          }
+      }
+  },
+  "additionalProperties": true
+}

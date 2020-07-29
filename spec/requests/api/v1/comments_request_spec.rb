@@ -38,7 +38,7 @@ RSpec.describe 'Api::V1::Comments', type: :request do
       end
 
       it 'show list of comments and return status code 404' do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('standard_error')
         expect(response).to have_http_status(:not_found)
       end
     end
@@ -63,7 +63,7 @@ RSpec.describe 'Api::V1::Comments', type: :request do
       let(:params) { { project_id: project.id, task_id: task.id, body: '' } }
 
       it 'do not create task' do
-        expect(response.body).to match_json_schema('error')
+        expect(response.body).to match_json_schema('validation_error')
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
