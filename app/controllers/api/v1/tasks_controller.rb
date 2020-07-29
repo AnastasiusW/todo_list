@@ -39,7 +39,6 @@ class Api::V1::TasksController < ApplicationController
 
   def complete
     authorize(current_task)
-
     if current_task.update(done: task_params[:done])
       return render json: TaskSerializer.new(current_task).serialized_json, status: :ok
     end

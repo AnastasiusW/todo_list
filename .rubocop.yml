@@ -22,8 +22,9 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/BlockLength:
-  Max: 40
   ExcludedMethods: ['describe','context']
+  Exclude:
+  - 'config/initializers/carrierwave.rb'
 
 RSpec/MultipleExpectations:
   Exclude:

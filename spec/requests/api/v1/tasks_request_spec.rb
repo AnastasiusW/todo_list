@@ -144,6 +144,16 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
         end
       end
     end
+
+    describe 'test will pass with fail ' do
+      context 'with input invalid empty name' do
+        let(:params) {  { id: task.id, name: '' } }
+
+        it 'update task and return status 422', :dox do
+          expect(response).to have_http_status(:unprocessable_entity)
+        end
+      end
+    end
   end
 
   describe 'PATCH api/v1/projects/:project_id/tasks/:id/position' do
@@ -232,18 +242,6 @@ RSpec.describe 'Api::V1::Tasks', type: :request do
 
         expect(response.body).to match_json_schema('task')
         expect(response).to have_http_status(:ok)
-      end
-    end
-
-    context 'with input invalid done parameter' do
-      let(:params) { { id: task.id, done: '' } }
-
-      before do
-        patch "/api/v1/projects/#{project_id}/tasks/#{invalid_id_task}/complete", headers: headers, params: params
-      end
-
-      it 'do not update complete', :dox do
-        expect(response).to have_http_status(:not_found)
       end
     end
   end
