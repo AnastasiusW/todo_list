@@ -1,14 +1,18 @@
-class Api::V1::UsersController < ApplicationController
-  def create
-    user = User.new(user_params)
-    return render json: UserSerializer.new(user).serialized_json, status: :created if user.save
+module Api
+  module V1
+    class UsersController < ApplicationController
+      def create
+        user = User.new(user_params)
+        return render json: UserSerializer.new(user).serialized_json, status: :created if user.save
 
-    validation_error(user.errors, :unprocessable_entity)
-  end
+        validation_error(user.errors, :unprocessable_entity)
+      end
 
-  private
+      private
 
-  def user_params
-    params.permit(:user_name, :password, :password_confirmation)
+      def user_params
+        params.permit(:user_name, :password, :password_confirmation)
+      end
+    end
   end
 end

@@ -18,26 +18,18 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= Rails.application.credentials.config[:database][:postgresql_user] %>
+  password: <%= Rails.application.credentials.config[:database][:postgresql_password] %>
 
 development:
   <<: *default
   database: todo_list_development
-  username: <%= Rails.application.credentials.config[:database][:postgresql_user] %>
-  password: <%= Rails.application.credentials.config[:database][:postgresql_password] %>
-
 
 test:
   <<: *default
   database: todo_list_test
-  username: <%= Rails.application.credentials.config[:database][:postgresql_user] %>
-  password: <%= Rails.application.credentials.config[:database][:postgresql_password] %>
-
 
 production:
   <<: *default
   database: todo_list_production
-  username: todo_list
-  password: <%= ENV['TODO_LIST_DATABASE_PASSWORD'] %>
