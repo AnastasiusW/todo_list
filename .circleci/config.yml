@@ -8,7 +8,6 @@ jobs:
           POSTGRES_USER: pguser
           POSTGRES_DB: todo_list_test
           POSTGRES_PASSWORD: root
-          DATABASE_URL: "postgres://ubuntu@localhost:5432/todo_list_test"
     steps:
       - checkout
 
