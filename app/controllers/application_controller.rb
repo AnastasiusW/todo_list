@@ -7,21 +7,21 @@ class ApplicationController < ActionController::API
   def authorize_request
     header = request.headers['Authorization']
     header = header.split(' ').last if header
-    @decoded = JsonWebToken.decode(header)
+    @decoded = JsonWebTokenService.decode(header)
     @current_user = User.find(@decoded[:user_id])
   end
 
   private
 
   def current_project
-    @current_project ||= Project.find_by!(id: project_params[:id])
+    @current_project ||= Project.find_by!(id: params[:id])
   end
 
   def current_task
-    @current_task ||= Task.find_by!(id: task_params[:id])
+    @current_task ||= Task.find_by!(id: params[:id])
   end
 
   def current_comment
-    @current_comment ||= Comment.find_by!(id: comment_params[:id])
+    @current_comment ||= Comment.find_by!(id: params[:id])
   end
 end

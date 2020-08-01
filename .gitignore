@@ -31,3 +31,4 @@
 /config/credentials/test.key
 /coverage/*
 /public/test
+/public/uploads

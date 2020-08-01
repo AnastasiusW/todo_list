@@ -4,7 +4,7 @@ RSpec.describe 'Api::V1::Comments', type: :request do
   let(:user) { create(:user) }
   let(:project) { create(:project, user: user) }
   let(:task) { create(:task, project: project) }
-  let(:token) { JsonWebToken.encode(user_id: user.id) }
+  let(:token) { JsonWebTokenService.encode(user_id: user.id) }
   let(:headers) { { authorization: token, accept: 'application/json' } }
   let(:project_id) { project.id }
   let(:task_id) { task.id }

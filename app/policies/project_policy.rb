@@ -1,19 +1,27 @@
 class ProjectPolicy < ApplicationPolicy
   def update?
-    check_policy
+    belongs_to_user?
   end
 
   def show?
-    check_policy
+    belongs_to_user?
   end
 
   def destroy?
-    check_policy
+    belongs_to_user?
+  end
+
+  def create?
+    belongs_to_user?
+  end
+
+  def index?
+    user.present? && user.persisted? && user == record.first.user
   end
 
   private
 
-  def check_policy
+  def belongs_to_user?
     user.present? && user.persisted? && user == record.user
   end
 end

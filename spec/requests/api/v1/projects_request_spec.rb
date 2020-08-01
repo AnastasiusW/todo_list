@@ -1,7 +1,7 @@
 RSpec.describe 'Api::V1::Projects', type: :request do
   include Docs::V1::Projects::Api
   let(:user) { create(:user) }
-  let(:token) { JsonWebToken.encode(user_id: user.id) }
+  let(:token) { JsonWebTokenService.encode(user_id: user.id) }
   let(:headers) { { authorization: token, accept: 'application/json' } }
 
   describe 'GET api/v1/projects' do

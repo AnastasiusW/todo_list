@@ -24,7 +24,7 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   ExcludedMethods: ['describe','context']
   Exclude:
-  - 'config/initializers/carrierwave.rb'
+  - 'config/environments/production.rb'
 
 RSpec/MultipleExpectations:
   Exclude:

@@ -2,7 +2,10 @@ class Api::V1::TasksController < ApplicationController
   before_action :authorize_request
 
   def index
-    render json: TaskSerializer.new(find_project_for_tasks.tasks).serialized_json, status: :ok if find_project_for_tasks
+    project = current_user.projects.find_by!(id: task_params[:project_id])
+    tasks = project.tasks
+    authorize(tasks)
+    render json: TaskSerializer.new(tasks).serialized_json, status: :ok
   end
 
   def show
@@ -12,6 +15,7 @@ class Api::V1::TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
+    authorize(task)
     return render json: TaskSerializer.new(task).serialized_json, status: :created if task.save
 
     validation_error(task.errors, :unprocessable_entity)
@@ -49,16 +53,12 @@ class Api::V1::TasksController < ApplicationController
   def destroy
     authorize(current_task)
 
-    render json: {}, status: :ok if current_task.destroy
+    current_task.destroy ? head(:ok) : head(:no_content)
   end
 
   private
 
   def task_params
     params.permit(:name, :project_id, :position, :id, :done, :deadline)
-  end
-
-  def find_project_for_tasks
-    current_user.projects.find_by!(id: task_params[:project_id])
   end
 end

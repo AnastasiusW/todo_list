@@ -22,12 +22,12 @@ module ExceptionsHandler
   end
 
   def validation_error(errors, status)
-    hundler = ValidationErrorsHandler.new(errors, status)
-    render json: ErrorSerializer.new(hundler), status: status
+    handler = ValidationErrorsHandler.new(errors, status)
+    render json: ErrorSerializer.new(handler), status: status
   end
 
   def standard_error(error, status)
-    hundler = StandardErrorsHandler.new(error, request.path, status)
-    render json: ErrorSerializer.new(hundler), status: status
+    handler = StandardErrorsHandler.new(error, request.path, status)
+    render json: ErrorSerializer.new(handler), status: status
   end
 end

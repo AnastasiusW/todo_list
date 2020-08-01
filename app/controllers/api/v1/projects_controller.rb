@@ -2,6 +2,8 @@ class Api::V1::ProjectsController < ApplicationController
   before_action :authorize_request
 
   def index
+    authorize(current_user.projects)
+
     render json: ProjectSerializer.new(current_user.projects).serialized_json, status: :ok
   end
 
@@ -12,7 +14,8 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def create
-    project = current_user.projects.new(name: project_params[:name], user: current_user)
+    project = current_user.projects.new(name: project_params[:name])
+    authorize(project)
     return render json: ProjectSerializer.new(project).serialized_json, status: :created if project.save
 
     validation_error(project.errors, :unprocessable_entity)
@@ -30,7 +33,7 @@ class Api::V1::ProjectsController < ApplicationController
   def destroy
     authorize(current_project)
 
-    render json: {}, status: :ok if current_project.destroy
+    current_project.destroy ? head(:ok) : head(:no_content)
   end
 
   private

@@ -2,7 +2,7 @@ class Api::V1::AuthenticationController < ApplicationController
   def create
     user = User.find_by(user_name: user_params[:user_name])
     if user&.authenticate(user_params[:password])
-      render json: { token: JsonWebToken.encode(user_id: user.id) }, status: :ok
+      render json: { token: JsonWebTokenService.encode(user_id: user.id) }, status: :ok
     else
       standard_error(I18n.t('.login'), :unauthorized)
     end

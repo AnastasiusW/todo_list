@@ -1,27 +1,35 @@
 class TaskPolicy < ApplicationPolicy
   def update?
-    check_policy
+    belongs_to_user?
   end
 
   def show?
-    check_policy
+    belongs_to_user?
   end
 
   def destroy?
-    check_policy
+    belongs_to_user?
   end
 
   def complete?
-    check_policy
+    belongs_to_user?
   end
 
   def position?
-    check_policy
+    belongs_to_user?
+  end
+
+  def create?
+    belongs_to_user?
+  end
+
+  def index?
+    user.present? && user.persisted? && user == record.first.project.user
   end
 
   private
 
-  def check_policy
+  def belongs_to_user?
     user.present? && user.persisted? && user == record.project.user
   end
 end
