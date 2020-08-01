@@ -2,13 +2,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: :create
-      post 'sign_in', to: 'authentication#create'
+      post 'sign_in', to: 'session#create'
       resources :projects do
-        resources :tasks do
-          member do
-            patch :position
-            patch :complete
-          end
+        resources :tasks  do
+          resources :position, only: :update
+          resources :complete, only: :update
           resources :comments
         end
       end

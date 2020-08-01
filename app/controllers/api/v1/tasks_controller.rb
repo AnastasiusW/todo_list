@@ -31,25 +31,6 @@ class Api::V1::TasksController < ApplicationController
     end
   end
 
-  def position
-    authorize(current_task)
-
-    if Task::Position.call(current_task, task_params[:position])
-      return render json: TaskSerializer.new(current_task).serialized_json, status: :ok
-    end
-
-    standard_error(I18n.t('errors.tasks.position'), :unprocessable_entity)
-  end
-
-  def complete
-    authorize(current_task)
-    if current_task.update(done: task_params[:done])
-      return render json: TaskSerializer.new(current_task).serialized_json, status: :ok
-    end
-
-    validation_error(current_task.errors, :unprocessable_entity)
-  end
-
   def destroy
     authorize(current_task)
 

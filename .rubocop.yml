@@ -17,7 +17,6 @@ Style/Documentation:
 Metrics/LineLength:
   Max: 120
 
-
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -30,10 +29,14 @@ RSpec/MultipleExpectations:
   Exclude:
   - 'spec/requests/**/*'
 
-
 RSpec/ExampleLength:
   Exclude:
-  - 'spec/requests/api/v1/tasks_request_spec.rb'
+  - 'spec/requests/api/v1/position_request_spec.rb'
+  - 'spec/requests/api/v1/complete_request_spec.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/uploaders/application_uploader.rb'
 
 Style/ClassAndModuleChildren:
   Enabled: false
@@ -42,7 +45,3 @@ RSpec/NestedGroups:
   Max: 3
   Exclude:
     - 'spec/requests/**/*'
-
-Metrics/BlockNesting:
-  Exclude:
-    - 'config/initializers/carrierwave.rb'

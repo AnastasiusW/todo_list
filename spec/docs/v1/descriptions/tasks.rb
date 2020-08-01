@@ -26,14 +26,6 @@ module Docs
         action 'Update task'
       end
 
-      document :position do
-        action 'Update position'
-      end
-
-      document :complete do
-        action 'Update complete'
-      end
-
       document :destroy do
         action 'Delete task'
       end

@@ -1,12 +1,12 @@
 module Docs
   module V1
-    module Authentication
+    module Session
       extend Dox::DSL::Syntax
 
       document :api do
-        resource 'Authentication' do
+        resource 'Session' do
           endpoint '/sign_in'
-          group 'Authentication'
+          group 'Session'
         end
       end
 

@@ -1,8 +1,8 @@
-RSpec.describe 'Api::V1::Authentications', type: :request do
-  include Docs::V1::Authentication::Api
+RSpec.describe 'Api::V1::Session', type: :request do
+  include Docs::V1::Session::Api
 
   describe 'POST api/v1/sign_in' do
-    include Docs::V1::Authentication::Create
+    include Docs::V1::Session::Create
 
     let(:user) { create(:user) }
 
@@ -14,7 +14,7 @@ RSpec.describe 'Api::V1::Authentications', type: :request do
       let(:user_params) { { user_name: user.user_name, password: user.password } }
 
       it 'sign in with success', :dox do
-        expect(response.body).to match_json_schema('authentication')
+        expect(response.body).to match_json_schema('session')
 
         expect(response).to have_http_status(:ok)
       end
