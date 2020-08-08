@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+      {
+          "errors": [
+              {
+                  "source": {
+                      "pointer": "data/attributes/name"
+                  },
+                  "detail": [
+                      "can't be blank"
+                  ],
+                  "status": "unprocessable_entity"
+              }
+          ]
+      }
+  ],
+  "required": [
+      "errors"
+  ],
+  "properties": {
+      "errors": {
+          "$id": "#/properties/errors",
+          "type": "array",
+          "title": "The errors schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+              [
+                  {
+                      "source": {
+                          "pointer": "data/attributes/name"
+                      },
+                      "detail": [
+                          "can't be blank"
+                      ],
+                      "status": "unprocessable_entity"
+                  }
+              ]
+          ],
+          "additionalItems": true,
+          "items": {
+              "$id": "#/properties/errors/items/0",
+              "type": "object",
+              "title": "The first items schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": {},
+              "examples": [
+                  {
+                      "source": {
+                          "pointer": "data/attributes/name"
+                      },
+                      "detail": [
+                          "can't be blank"
+                      ],
+                      "status": "unprocessable_entity"
+                  }
+              ],
+              "required": [
+                  "source",
+                  "detail",
+                  "status"
+              ],
+              "properties": {
+                  "source": {
+                      "$id": "#/properties/errors/items/0/properties/source",
+                      "type": "object",
+                      "title": "The source schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "examples": [
+                          {
+                              "pointer": "data/attributes/name"
+                          }
+                      ],
+                      "required": [
+                          "pointer"
+                      ],
+                      "properties": {
+                          "pointer": {
+                              "$id": "#/properties/errors/items/0/properties/source/properties/pointer",
+                              "type": "string",
+                              "title": "The pointer schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                  "data/attributes/name"
+                              ]
+                          }
+                      },
+                      "additionalProperties": true
+                  },
+                  "detail": {
+                      "$id": "#/properties/errors/items/0/properties/detail",
+                      "type": "array",
+                      "title": "The detail schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": [],
+                      "examples": [
+                          [
+                              "can't be blank"
+                          ]
+                      ],
+                      "additionalItems": true,
+                      "items": {
+                          "$id": "#/properties/errors/items/0/properties/detail/items/0",
+                          "type": "string",
+                          "title": "The first items schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                              "can't be blank"
+                          ]
+                      }
+                  },
+                  "status": {
+                      "$id": "#/properties/errors/items/0/properties/status",
+                      "type": "string",
+                      "title": "The status schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": "",
+                      "examples": [
+                          "unprocessable_entity"
+                      ]
+                  }
+              },
+              "additionalProperties": true
+          }
+      }
+  },
+  "additionalProperties": true
+}

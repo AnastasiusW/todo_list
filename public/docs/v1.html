@@ -1,0 +1,907 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>API Documentation</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#comments">Comments</a></div><div class="collapse-content"><ul><li><a href="#comments-comments">Comments</a><ul><li><a href="#comments-comments-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get comments</a></li><li><a href="#comments-comments-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create comments</a></li><li><a href="#comments-comments-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete comment</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#projects">Projects</a></div><div class="collapse-content"><ul><li><a href="#projects-projects">Projects</a><ul><li><a href="#projects-projects-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get projects</a></li><li><a href="#projects-projects-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show project</a></li><li><a href="#projects-projects-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create projects</a></li><li><a href="#projects-projects-patch"><span class="badge patch"><i class="fa fa-pencil"></i></span>Update project</a></li><li><a href="#projects-projects-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete project</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#session">Session</a></div><div class="collapse-content"><ul><li><a href="#session-session-post"><span class="badge post"><i class="fa fa-plus"></i></span>Sign in user</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#tasks">Tasks</a></div><div class="collapse-content"><ul><li><a href="#tasks-tasks">Tasks</a><ul><li><a href="#tasks-tasks-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Get tasks</a></li><li><a href="#tasks-tasks-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show task</a></li><li><a href="#tasks-tasks-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create tasks</a></li><li><a href="#tasks-tasks-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Update task</a></li><li><a href="#tasks-tasks-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete task</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#tasks-complete">Tasks/Complete</a></div><div class="collapse-content"><ul><li><a href="#tasks-complete-complete-patch"><span class="badge patch"><i class="fa fa-pencil"></i></span>Update complete</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#tasks-position">Tasks/Position</a></div><div class="collapse-content"><ul><li><a href="#tasks-position-position-patch"><span class="badge patch"><i class="fa fa-pencil"></i></span>Update position</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#users">Users</a></div><div class="collapse-content"><ul><li><a href="#users-users-post"><span class="badge post"><i class="fa fa-plus"></i></span>Sign up user</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">API Documentation</h1></header><section id="comments" class="resource-group"><h2 class="group-heading">Comments <a href="#comments" class="permalink">&para;</a></h2><div id="comments-comments" class="resource"><h3 class="resource-heading">Comments <a href="#comments-comments" class="permalink">&nbsp;&para;</a></h3><div id="comments-comments-get" class="action get"><h4 class="action-heading"><div class="name">Get comments</div><a href="#comments-comments-get" class="method get">GET</a><code class="uri">/api/v1/projects/{project_id}/tasks/{task_id}/comments</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13135</span>/tasks/<span class="hljs-attribute" title="task_id">10177</span>/comments</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13135</span></span></dd><dt>task_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10177</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>show list of comments and return status code 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13135/tasks/10177/comments?task_id=10177</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzUzOSwiZXhwIjoxNTk2OTc3MDM3fQ.r1LvF7I6F-UH_0UxEOPhIR-3e1xKXOJHLz-qD5XGqzw</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2227"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"comment"</span></span>,
+      "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">body</span>": <span class="hljs-value"><span class="hljs-string">"Quos non ducimus delectus nihil molestiae architecto. Magnam autem impedit sunt aut harum enim distinctio optio."</span></span>,
+        "<span class="hljs-attribute">file</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/comment/file/2227/test.jpg"</span></span>,
+          "<span class="hljs-attribute">medium_img</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/comment/file/2227/medium_img_test.jpg"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:56.994Z"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:56.994Z"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">task</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10177"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span>
+          </span>}
+        </span>}
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2228"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"comment"</span></span>,
+      "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">body</span>": <span class="hljs-value"><span class="hljs-string">"Veniam dignissimos voluptatem occaecati quia quia. Tempora totam molestiae qui qui dolor eum. Ea corporis aut sapiente corrupti autem. Ad mollitia molestiae eos nemo."</span></span>,
+        "<span class="hljs-attribute">file</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/comment/file/2228/test.jpg"</span></span>,
+          "<span class="hljs-attribute">medium_img</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/comment/file/2228/medium_img_test.jpg"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:57.099Z"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:57.099Z"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">task</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10177"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span>
+          </span>}
+        </span>}
+      </span>}
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>show list of comments and return status code 404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13136/tasks/0/comments?task_id=0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0MCwiZXhwIjoxNTk2OTc3MDM3fQ.E3hn8Sz0HiqmwXHKi6To1UWAD6pLPdNZ79GhyZRjcok</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13136/tasks/0/comments"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="comments-comments-post" class="action post"><h4 class="action-heading"><div class="name">Create comments</div><a href="#comments-comments-post" class="method post">POST</a><code class="uri">/api/v1/projects/{project_id}/tasks/{task_id}/comments</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13137</span>/tasks/<span class="hljs-attribute" title="task_id">10179</span>/comments</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13137</span></span></dd><dt>task_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10179</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>creates new comment and return status code 201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/projects/13137/tasks/10179/comments</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0MSwiZXhwIjoxNTk2OTc3MDM3fQ.9Fv-MrIGgH31qRMb_moAV0I-CNwM-FAOVDMBPiZTsec</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">body</span>": <span class="hljs-value"><span class="hljs-string">"Consequatur sed commodi eos sint in expedita nam. Consequatur ut occaecati aut odit repellat quia voluptatem. Inventore voluptatem quam numquam odit illo."</span></span>,
+  "<span class="hljs-attribute">file</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">filename</span>": <span class="hljs-value"><span class="hljs-string">"test.jpg"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"image/jpg"</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"file"</span></span>,
+    "<span class="hljs-attribute">tempfile</span>": <span class="hljs-value"><span class="hljs-string">"#&lt;File:0x0000000003fca0f0&gt;"</span></span>,
+    "<span class="hljs-attribute">head</span>": <span class="hljs-value"><span class="hljs-string">"Content-Disposition: form-data; name=\"file\"; filename=\"test.jpg\"\r\nContent-Type: image/jpg\r\nContent-Length: 225366\r\n"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2231"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"comment"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">body</span>": <span class="hljs-value"><span class="hljs-string">"Consequatur sed commodi eos sint in expedita nam. Consequatur ut occaecati aut odit repellat quia voluptatem. Inventore voluptatem quam numquam odit illo."</span></span>,
+      "<span class="hljs-attribute">file</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/comment/file/2231/test.jpg"</span></span>,
+        "<span class="hljs-attribute">medium_img</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"/comment/file/2231/medium_img_test.jpg"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:57.831Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:57.831Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">task</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10179"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span>
+        </span>}
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>do not create task</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/projects/13138/tasks/10180/comments</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0MiwiZXhwIjoxNTk2OTc3MDM4fQ.TVKDESkgeMAb2OHSkIap2yAgRl3rFxAp9I-iO6G6rjo</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>project_id=13138&amp;task_id=10180&amp;body=</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"data/attributes/body"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value">[
+        <span class="hljs-string">"is too short (minimum is 10 characters)"</span>,
+        <span class="hljs-string">"can't be blank"</span>
+      ]</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="comments-comments-delete" class="action delete"><h4 class="action-heading"><div class="name">Delete comment</div><a href="#comments-comments-delete" class="method delete">DELETE</a><code class="uri">/api/v1/projects/{project_id}/tasks/{task_id}/comments/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13139</span>/tasks/<span class="hljs-attribute" title="task_id">10181</span>/comments/<span class="hljs-attribute" title="id">2232</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13139</span></span></dd><dt>task_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10181</span></span></dd><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2232</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>task will be deleted with success</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>DELETE</strong>  <code>/api/v1/projects/13139/tasks/10181/comments/2232</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0MywiZXhwIjoxNTk2OTc3MDM4fQ.iKb-RtUSKYqxtHqVYfDK-mNNssl2c74jin0cQmHbt9Y</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=2232</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>task will be not deleted</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>DELETE</strong>  <code>/api/v1/projects/13140/tasks/10182/comments/0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0NCwiZXhwIjoxNTk2OTc3MDM4fQ.DzFRjR8ZvapDDWneKtLICdCE-0gyOsbHtYESAcerqJg</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=0</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13140/tasks/10182/comments/0"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="projects" class="resource-group"><h2 class="group-heading">Projects <a href="#projects" class="permalink">&para;</a></h2><div id="projects-projects" class="resource"><h3 class="resource-heading">Projects <a href="#projects-projects" class="permalink">&nbsp;&para;</a></h3><div id="projects-projects-get" class="action get"><h4 class="action-heading"><div class="name">Get projects</div><a href="#projects-projects-get" class="method get">GET</a><code class="uri">/api/v1/projects</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>return all list of projects of current user</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1MCwiZXhwIjoxNTk2OTc3MDM5fQ.s9OVFAltzKiL4rQJWQW14uvai69Fp6g20jL2jBaQUvI</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13146"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span></span>,
+      "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"consequatur"</span></span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.186Z"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.186Z"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13550"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"user"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+        </span>}
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13147"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span></span>,
+      "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"exercitationem"</span></span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.193Z"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.193Z"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13550"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"user"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+        </span>}
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13148"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span></span>,
+      "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"sit"</span></span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.199Z"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.199Z"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13550"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"user"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+        </span>}
+      </span>}
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="projects-projects-get-1" class="action get"><h4 class="action-heading"><div class="name">Show project</div><a href="#projects-projects-get-1" class="method get">GET</a><code class="uri">/api/v1/projects/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="id">13149</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13149</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>return project of current user</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13149?id=13149</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1MSwiZXhwIjoxNTk2OTc3MDM5fQ.nVtzaz72j778JGt-Itaj24dT1LsJZdKB4ktx6Wm6URo</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13149"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"placeat"</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.319Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.319Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13551"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"user"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>return 403 status</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13150?id=13150</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1MywiZXhwIjoxNTk2OTc3MDM5fQ.t8qFIvbj-Ha1JJQos8Ok3xzBx1X1JY5nHRJYWuGBr8I</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>403</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13150"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"You are not authorized to perform this action."</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"forbidden"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="projects-projects-post" class="action post"><h4 class="action-heading"><div class="name">Create projects</div><a href="#projects-projects-post" class="method post">POST</a><code class="uri">/api/v1/projects</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>create project and return status 201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/projects</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1NCwiZXhwIjoxNTk2OTc3MDM5fQ.vCc1bVz10uMH8WFRzLHVL_bAPxgyj0KZZFbJDXOczGk</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>name=pariatur</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13151"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"pariatur"</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.557Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.557Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13554"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"user"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>test fail, because inputs exist`s project name, return status 422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/projects</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1NSwiZXhwIjoxNTk2OTc3MDM5fQ.mC5OIBamI9V2DXVLQwjISAdemrMJCoFOQP5YZ5D1M7A</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>name=omnis</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"data/attributes/name"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value">[
+        <span class="hljs-string">"translation missing: en.project_exist"</span>
+      ]</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="projects-projects-patch" class="action patch"><h4 class="action-heading"><div class="name">Update project</div><a href="#projects-projects-patch" class="method patch">PATCH</a><code class="uri">/api/v1/projects/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method patch">PATCH</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="id">13153</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13153</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>update task and return status 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/13153</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1NiwiZXhwIjoxNTk2OTc3MDM5fQ.kX9LOEUnv8yzplIN960ptzJGo98gqEd1O4b9ld5dfYY</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=13153&amp;name=veritatis</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13153"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"veritatis"</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.765Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:59.782Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13556"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"user"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">tasks</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>with fails, because name is empty, return status 422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/13154</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1NywiZXhwIjoxNTk2OTc3MDM5fQ.oEee_nTVNeX4yQpLKGzTGL1cafdgGPTbVkNZqfk8lPE</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=13154&amp;name=</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"data/attributes/name"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value">[
+        <span class="hljs-string">"can't be blank"</span>
+      ]</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>with fails, because name is empty and project_id is nil with not_found, return status 404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1OCwiZXhwIjoxNTk2OTc3MDM5fQ.moq6TrxQLGDhndbjR7MUbyDMS5ZfYp3ZUR7Gs65D5SI</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=0&amp;name=</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/0"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="projects-projects-delete" class="action delete"><h4 class="action-heading"><div class="name">Delete project</div><a href="#projects-projects-delete" class="method delete">DELETE</a><code class="uri">/api/v1/projects/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="id">13155</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13155</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>project will be destroyed with success</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>DELETE</strong>  <code>/api/v1/projects/13155</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU1OSwiZXhwIjoxNTk2OTc3MDQwfQ.JFnTY9sppBhvrBSI3MgiN_fqUis4S_qveDeFyp1CUnk</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=13155</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>with fails, because id is invalid</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>DELETE</strong>  <code>/api/v1/projects/0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2MCwiZXhwIjoxNTk2OTc3MDQwfQ.qS_gBF6VM6T4U4gq1aJWCcvGNnVAbYMBwqQjLhTIL8w</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=0</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/0"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="session" class="resource-group"><h2 class="group-heading">Session <a href="#session" class="permalink">&para;</a></h2><div id="session-session" class="resource"><h3 class="resource-heading">Session <a href="#session-session" class="permalink">&nbsp;&para;</a></h3><div id="session-session-post" class="action post"><h4 class="action-heading"><div class="name">Sign in user</div><a href="#session-session-post" class="method post">POST</a><code class="uri">/api/v1/sign_in</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/sign_in</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>sign in with success</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/sign_in</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>user_name=Phyllis+Bahringer&amp;password=lKEQ0tvHX3T0oZtf</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">token</span>": <span class="hljs-value"><span class="hljs-string">"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2MSwiZXhwIjoxNTk2OTc3MDQwfQ.SBnIHT3hkOv8Tn3_WwjwkzP7E5GYF4L-_m8ZaSQB1Ao"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>sign in with fail</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/sign_in</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>user_name=invalid&amp;password=invalid</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/sign_in"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="tasks" class="resource-group"><h2 class="group-heading">Tasks <a href="#tasks" class="permalink">&para;</a></h2><div id="tasks-tasks" class="resource"><h3 class="resource-heading">Tasks <a href="#tasks-tasks" class="permalink">&nbsp;&para;</a></h3><div id="tasks-tasks-get" class="action get"><h4 class="action-heading"><div class="name">Get tasks</div><a href="#tasks-tasks-get" class="method get">GET</a><code class="uri">/api/v1/projects/{project_id}/tasks</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13157</span>/tasks</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13157</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>show list of tasks and return status code 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13157/tasks?project_id=13157</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2MiwiZXhwIjoxNTk2OTc3MDQwfQ.jj3NYCygtfVYn7orLtdBpfEAhVE5hNsOlSzo_06CryE</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10196"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+      "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"qui"</span></span>,
+        "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:44:00.340Z"</span></span>,
+        "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.340Z"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.340Z"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13157"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+        </span>}
+      </span>}
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10197"</span></span>,
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+      "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"earum"</span></span>,
+        "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:44:00.348Z"</span></span>,
+        "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.348Z"</span></span>,
+        "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.348Z"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+            "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13157"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+          </span>}
+        </span>}</span>,
+        "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+        </span>}
+      </span>}
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>show list of tasks and return status code 401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13158/tasks?project_id=13158</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>401</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13158/tasks"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Authenticate is fail"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unauthorized"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>show list of comments and return status code 404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/0/tasks?project_id=0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2NCwiZXhwIjoxNTk2OTc3MDQwfQ.il9BiQZ-QnLYepX0X0D-1iWkWk0hokpEmxoTJWhqCgE</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/0/tasks"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="tasks-tasks-get-1" class="action get"><h4 class="action-heading"><div class="name">Show task</div><a href="#tasks-tasks-get-1" class="method get">GET</a><code class="uri">/api/v1/projects/{project_id}/tasks/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13160</span>/tasks/<span class="hljs-attribute" title="id">10202</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13160</span></span></dd><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10202</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>return tasks of project</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13160/tasks/10202?id=10202&amp;project_id=13160</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2NSwiZXhwIjoxNTk2OTc3MDQwfQ.e9I7sMVGsH-kWqjIFgH5zBmlkyI9ChGIi3UlbPE7xkg</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10202"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"quis"</span></span>,
+      "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:44:00.713Z"</span></span>,
+      "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.714Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.714Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13160"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>do not show task</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>GET</strong>  <code>/api/v1/projects/13161/tasks/0?id=0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2NiwiZXhwIjoxNTk2OTc3MDQwfQ.gsT8nppSNZXmRL332lLWHOngCXcy5l8evdOPncPWq4s</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13161/tasks/0"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="tasks-tasks-post" class="action post"><h4 class="action-heading"><div class="name">Create tasks</div><a href="#tasks-tasks-post" class="method post">POST</a><code class="uri">/api/v1/projects/{project_id}/tasks</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13162</span>/tasks</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13162</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>create new task and return status code 201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/projects/13162/tasks</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2NywiZXhwIjoxNTk2OTc3MDQwfQ.a7zwsmGx7Trj118nOvRZO-GkqjEAPdvUi5L0HmWIFVE</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>project_id=13162&amp;name=dolores&amp;deadline=2020-08-10T15%3A44%3A00%2B03%3A00</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10203"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"dolores"</span></span>,
+      "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:44:00.000Z"</span></span>,
+      "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.998Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:00.998Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13162"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>do not create task, because inputs empty task name</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/projects/13163/tasks</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2OCwiZXhwIjoxNTk2OTc3MDQxfQ.dzpWcxBDvyGlW6MZQzh5mCu4QwkMMAK-lOhmRQoTW8g</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>project_id=13163&amp;name=</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"data/attributes/name"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value">[
+        <span class="hljs-string">"can't be blank"</span>
+      ]</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="tasks-tasks-put" class="action put"><h4 class="action-heading"><div class="name">Update task</div><a href="#tasks-tasks-put" class="method put">PUT</a><code class="uri">/api/v1/projects/{project_id}/tasks/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13164</span>/tasks/<span class="hljs-attribute" title="id">10204</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13164</span></span></dd><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10204</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>update task and return status 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PUT</strong>  <code>/api/v1/projects/13164/tasks/10204</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU2OSwiZXhwIjoxNTk2OTc3MDQxfQ.HQxNCKhiHWTELuDKpKbLwjjQSMCiaT3bN64M00g54NQ</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=10204&amp;name=voluptatem</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10204"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"voluptatem"</span></span>,
+      "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:44:01.229Z"</span></span>,
+      "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:01.230Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:01.251Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13164"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>update task and return status 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PUT</strong>  <code>/api/v1/projects/13165/tasks/10205</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU3MCwiZXhwIjoxNTk2OTc3MDQxfQ.F_5JDkvfQoDjGnIlNDrzqQfV9mwCE5xeYkRPGweFtVE</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=10205&amp;deadline=2020-08-10T15%3A44%3A01%2B03%3A00</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10205"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"ut"</span></span>,
+      "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:44:01.000Z"</span></span>,
+      "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:01.366Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:01.387Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13165"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>update task and return status 422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PUT</strong>  <code>/api/v1/projects/13166/tasks/10206</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU3MSwiZXhwIjoxNTk2OTc3MDQxfQ.Zh8DUsGMA-A4UUeMWKKdfCQUXqPzmdloAP6wi_dH6yg</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=10206&amp;name=</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"data/attributes/name"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value">[
+        <span class="hljs-string">"can't be blank"</span>
+      ]</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="tasks-tasks-delete" class="action delete"><h4 class="action-heading"><div class="name">Delete task</div><a href="#tasks-tasks-delete" class="method delete">DELETE</a><code class="uri">/api/v1/projects/{project_id}/tasks/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13167</span>/tasks/<span class="hljs-attribute" title="id">10207</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13167</span></span></dd><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10207</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>task will be deleted with success</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>DELETE</strong>  <code>/api/v1/projects/13167/tasks/10207</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU3MiwiZXhwIjoxNTk2OTc3MDQxfQ.EBtCWQNMO8dSTLdMO7WeJnBtfLXV3m_O5HTWzA3iAu8</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=10207</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>task will be deleted with fail</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>DELETE</strong>  <code>/api/v1/projects/13168/tasks/0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU3MywiZXhwIjoxNTk2OTc3MDQxfQ.VNJmDQSqwcNKH5SYPPt61S0IhW3bNZ1IkkzzYIeIY_w</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=0</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13168/tasks/0"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="tasks-complete" class="resource-group"><h2 class="group-heading">Tasks/Complete <a href="#tasks-complete" class="permalink">&para;</a></h2><div id="tasks-complete-complete" class="resource"><h3 class="resource-heading">Complete <a href="#tasks-complete-complete" class="permalink">&nbsp;&para;</a></h3><div id="tasks-complete-complete-patch" class="action patch"><h4 class="action-heading"><div class="name">Update complete</div><a href="#tasks-complete-complete-patch" class="method patch">PATCH</a><code class="uri">/api/v1/projects/{project_id}/tasks/{task_id}/complete/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method patch">PATCH</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13141</span>/tasks/<span class="hljs-attribute" title="task_id">10183</span>/complete/<span class="hljs-attribute" title="id">10183</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13141</span></span></dd><dt>task_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10183</span></span></dd><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10183</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>update task and return status 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/13141/tasks/10183/complete/10183</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0NSwiZXhwIjoxNTk2OTc3MDM4fQ.Zm2_GVIH5qSw14RsUyHU6H8EcLj0Y67Nht6HDqoo6-E</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=<span class="hljs-number">10183</span>&amp;done=<span class="hljs-literal">true</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10183"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"alias"</span></span>,
+      "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:43:58.406Z"</span></span>,
+      "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:58.406Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:58.431Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13141"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="tasks-position" class="resource-group"><h2 class="group-heading">Tasks/Position <a href="#tasks-position" class="permalink">&para;</a></h2><div id="tasks-position-position" class="resource"><h3 class="resource-heading">Position <a href="#tasks-position-position" class="permalink">&nbsp;&para;</a></h3><div id="tasks-position-position-patch" class="action patch"><h4 class="action-heading"><div class="name">Update position</div><a href="#tasks-position-position-patch" class="method patch">PATCH</a><code class="uri">/api/v1/projects/{project_id}/tasks/{task_id}/position/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method patch">PATCH</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/projects/<span class="hljs-attribute" title="project_id">13142</span>/tasks/<span class="hljs-attribute" title="task_id">10185</span>/position/<span class="hljs-attribute" title="id">10185</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>project_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>13142</span></span></dd><dt>task_id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10185</span></span></dd><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10185</span></span></dd></dl></div><div class="title"><strong>Request&nbsp;&nbsp;<code>update task and return status 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/13142/tasks/10185/position/10185</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0NiwiZXhwIjoxNTk2OTc3MDM4fQ.dipq7qjOtt5XsLxj5hfk-HSe63QG0RQ8t1Bmwxftlwo</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=10185&amp;position=move_up</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10185"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"facilis"</span></span>,
+      "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:43:58.595Z"</span></span>,
+      "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:58.596Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:58.663Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13142"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>update task and return status 200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/13143/tasks/10188/position/10188</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0NywiZXhwIjoxNTk2OTc3MDM4fQ.MA48F5KNqOP6_mQ3ihwpjf1XOGnq_JORr5OQuBWnfMM</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=10188&amp;position=move_down</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"10188"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"task"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"rerum"</span></span>,
+      "<span class="hljs-attribute">position</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">deadline</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-10T12:43:58.789Z"</span></span>,
+      "<span class="hljs-attribute">done</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:58.789Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:43:58.849Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">project</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13143"</span></span>,
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"project"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">comments</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>do not update position, invalid position</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/13144/tasks/10191/position/10191</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0OCwiZXhwIjoxNTk2OTc3MDM4fQ.AebJpkXGz5dlPKxAy_NPBXYK1HHd12sJZD6HT_Gry3c</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id=10191&amp;position=sint</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13144/tasks/10191/position/10191"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Wrong postion parameter"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>do not update position, invalid id task</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>PATCH</strong>  <code>/api/v1/projects/13145/tasks/0/position/0</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMzU0OSwiZXhwIjoxNTk2OTc3MDM5fQ.rgfxu966H6bFR3bP3JxOZIP3FbmSrAnbGExywE1-yXM</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>id&amp;position=move_down</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/projects/13145/tasks/0/position/0"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value"><span class="hljs-string">"Record not found"</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"not_found"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="users" class="resource-group"><h2 class="group-heading">Users <a href="#users" class="permalink">&para;</a></h2><div id="users-users" class="resource"><h3 class="resource-heading">Users <a href="#users-users" class="permalink">&nbsp;&para;</a></h3><div id="users-users-post" class="action post"><h4 class="action-heading"><div class="name">Sign up user</div><a href="#users-users-post" class="method post">POST</a><code class="uri">/api/v1/users</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/users</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>sign up user with success</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/users</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>user_name=Melda+Purdy&amp;password=WKcmTz0shR&amp;password_confirmation=WKcmTz0shR</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"13574"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"user"</span></span>,
+    "<span class="hljs-attribute">attributes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">user_name</span>": <span class="hljs-value"><span class="hljs-string">"Melda Purdy"</span></span>,
+      "<span class="hljs-attribute">password_digest</span>": <span class="hljs-value"><span class="hljs-string">"$2a$04$tNcrK0YejLbTDOp0Kp9EfOvoIc6rQIQxFv7y3LR0yp.IYEgBcmWWe"</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:01.632Z"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-08-08T12:44:01.632Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">relationships</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">projects</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]
+      </span>}
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request&nbsp;&nbsp;<code>sign up user with empty user_name and wrong password_confirmation</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p><strong>POST</strong>  <code>/api/v1/users</code></p>
+</div><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5</span><br><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/x-www-form-urlencoded</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>user_name=&amp;password=password&amp;password_confirmation=wrong</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>422</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"data/attributes/password_confirmation"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value">[
+        <span class="hljs-string">"doesn't match Password"</span>
+      ]</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">source</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">pointer</span>": <span class="hljs-value"><span class="hljs-string">"data/attributes/user_name"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">detail</span>": <span class="hljs-value">[
+        <span class="hljs-string">"can't be blank"</span>,
+        <span class="hljs-string">"is too short (minimum is 3 characters)"</span>
+      ]</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"unprocessable_entity"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 08 Aug 2020</p><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
+
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
+  }
+
+  return filtered;
+}
+
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    autoCollapse();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    autoCollapse();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>

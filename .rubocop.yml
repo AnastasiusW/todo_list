@@ -1,0 +1,44 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'tmp/*'
+    - 'storage/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'public/*'
+    - 'coverage/*'
+    - 'bin/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe','context']
+  Exclude:
+  - 'config/environments/production.rb'
+
+RSpec/MultipleExpectations:
+  Exclude:
+  - 'spec/requests/**/*'
+
+RSpec/ExampleLength:
+  Exclude:
+  - 'spec/requests/api/v1/position_request_spec.rb'
+  - 'spec/requests/api/v1/complete_request_spec.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/uploaders/application_uploader.rb'
+
+RSpec/NestedGroups:
+  Max: 3
+  Exclude:
+    - 'spec/requests/**/*'

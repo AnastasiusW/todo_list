@@ -1,0 +1,9 @@
+database:
+  postgresql_user: *
+  postgresql_password: *
+
+aws:
+  access_key_id: *
+  secret_access_key: *
+  s3_bucket_name: *
+  region: *
