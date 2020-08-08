@@ -7,8 +7,10 @@ class CommentPolicy < ApplicationPolicy
     belongs_to_user?
   end
 
-  def index?
-    user.present? && user.persisted? && user == record.first.task.project.user
+  class Scope < Scope
+    def resolve
+      scope.joins(task: :project).where(tasks: { projects: { user: user } })
+    end
   end
 
   private

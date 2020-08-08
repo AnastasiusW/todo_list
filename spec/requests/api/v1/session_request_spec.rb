@@ -25,7 +25,7 @@ RSpec.describe 'Api::V1::Session', type: :request do
 
       it 'sign in with fail', :dox do
         expect(response.body).to match_json_schema('standard_error')
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

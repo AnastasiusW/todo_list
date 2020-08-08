@@ -1,12 +1,11 @@
 module Api
   module V1
     class CommentsController < ApplicationController
-      before_action :authorize_request
+      before_action :authorize_request!
 
       def index
-        task = Task.find_by!(id: comment_params[:task_id])
-        comments = task.comments
-        authorize(comments)
+        comments = Task.find_by!(id: comment_params[:task_id]).comments
+        policy_scope(comments)
         render json: CommentSerializer.new(comments).serialized_json, status: :ok
       end
 

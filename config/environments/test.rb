@@ -48,5 +48,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   CarrierWave.configure do |config|
     config.storage = :file
+    config.root = Rails.root.join('public', 'test', 'uploads')
   end
 end

@@ -50,5 +50,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   CarrierWave.configure do |config|
     config.storage = :file
+    config.root = Rails.root.join('public', 'uploads')
   end
 end

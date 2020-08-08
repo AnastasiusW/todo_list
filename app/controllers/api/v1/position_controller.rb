@@ -1,7 +1,7 @@
 module Api
   module V1
     class PositionController < ApplicationController
-      before_action :authorize_request
+      before_action :authorize_request!
 
       def update
         authorize(current_task)

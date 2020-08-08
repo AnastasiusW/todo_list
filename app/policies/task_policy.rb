@@ -23,8 +23,10 @@ class TaskPolicy < ApplicationPolicy
     belongs_to_user?
   end
 
-  def index?
-    user.present? && user.persisted? && user == record.first.project.user
+  class Scope < Scope
+    def resolve
+      scope.joins(:project).where(projects: { user: user })
+    end
   end
 
   private

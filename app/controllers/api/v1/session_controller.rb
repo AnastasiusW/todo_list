@@ -2,7 +2,7 @@ module Api
   module V1
     class SessionController < ApplicationController
       def create
-        user = User.find_by(user_name: user_params[:user_name])
+        user = User.find_by!(user_name: user_params[:user_name])
         if user&.authenticate(user_params[:password])
           render json: { token: JsonWebTokenService.encode(user_id: user.id) }, status: :ok
         else

@@ -1,11 +1,10 @@
 module Api
   module V1
     class ProjectsController < ApplicationController
-      before_action :authorize_request
+      before_action :authorize_request!
 
       def index
-        authorize(current_user.projects)
-
+        policy_scope(current_user.projects)
         render json: ProjectSerializer.new(current_user.projects).serialized_json, status: :ok
       end
 

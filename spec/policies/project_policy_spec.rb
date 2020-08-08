@@ -1,6 +1,8 @@
 RSpec.describe ProjectPolicy do
   subject { described_class.new(visitor, project) }
 
+  let(:scope) { described_class::Scope.new(visitor, Project.all).resolve }
+
   context 'with user' do
     let(:visitor) { create(:user) }
 
@@ -15,9 +17,11 @@ RSpec.describe ProjectPolicy do
     end
 
     context 'with list projects' do
-      let(:project) { create_list(:project, 2, user: visitor) }
+      let(:project1) { create(:project, user: visitor) }
+      let(:project2) { create(:project) }
 
-      it { is_expected.to permit_action(:index) }
+      it { expect(scope).to include(project1) }
+      it { expect(scope).not_to include(project2) }
     end
   end
 
@@ -35,9 +39,10 @@ RSpec.describe ProjectPolicy do
     end
 
     context 'with list  project' do
-      let(:project) { create_list(:project, 2) }
+      let(:project1) { create(:project) }
+      let(:project2) { create(:project) }
 
-      it { is_expected.to forbid_action(:index) }
+      it { expect(scope).not_to include(project1) }
     end
   end
 
@@ -55,9 +60,10 @@ RSpec.describe ProjectPolicy do
     end
 
     context 'with list  project' do
-      let(:project) { create_list(:project, 2) }
+      let(:project1) { create(:project) }
+      let(:project2) { create(:project) }
 
-      it { is_expected.to forbid_action(:index) }
+      it { expect(scope).not_to include(project1) }
     end
   end
 end

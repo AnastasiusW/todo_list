@@ -1,6 +1,8 @@
 RSpec.describe CommentPolicy do
   subject(:comment_policy) { described_class.new(visitor, comment) }
 
+  let(:scope) { described_class::Scope.new(visitor, Comment.all).resolve }
+
   context 'with user' do
     let(:visitor) { create(:user) }
     let(:project) { create(:project, user: visitor) }
@@ -14,9 +16,11 @@ RSpec.describe CommentPolicy do
     end
 
     context 'with list comments' do
-      let(:comment) { create_list(:comment, 2, task: task) }
+      let(:comment1) { create(:comment, task: task) }
+      let(:comment2) { create(:comment) }
 
-      it { is_expected.to permit_action(:index) }
+      it { expect(scope).to include(comment1) }
+      it { expect(scope).not_to include(comment2) }
     end
   end
 
@@ -31,9 +35,10 @@ RSpec.describe CommentPolicy do
     end
 
     context 'with list comments' do
-      let(:comment) { create_list(:comment, 2) }
+      let(:comment1) { create(:comment) }
+      let(:comment2) { create(:comment) }
 
-      it { is_expected.to forbid_action(:index) }
+      it { expect(scope).not_to include(comment1) }
     end
   end
 
@@ -48,9 +53,10 @@ RSpec.describe CommentPolicy do
     end
 
     context 'with list comments' do
-      let(:comment) { create_list(:comment, 2) }
+      let(:comment1) { create(:comment) }
+      let(:comment2) { create(:comment) }
 
-      it { is_expected.to forbid_action(:index) }
+      it { expect(scope).not_to include(comment1) }
     end
   end
 end

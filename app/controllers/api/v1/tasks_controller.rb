@@ -1,12 +1,12 @@
 module Api
   module V1
     class TasksController < ApplicationController
-      before_action :authorize_request
+      before_action :authorize_request!
 
       def index
         project = current_user.projects.find_by!(id: task_params[:project_id])
         tasks = project.tasks
-        authorize(tasks)
+        policy_scope(tasks)
         render json: TaskSerializer.new(tasks).serialized_json, status: :ok
       end
 

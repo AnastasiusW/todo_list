@@ -1,6 +1,8 @@
 RSpec.describe TaskPolicy do
   subject { described_class.new(visitor, task) }
 
+  let(:scope) { described_class::Scope.new(visitor, Task.all).resolve }
+
   context 'with user' do
     let(:visitor) { create(:user) }
     let(:project) { create(:project, user: visitor) }
@@ -18,9 +20,11 @@ RSpec.describe TaskPolicy do
     end
 
     context 'with list tasks' do
-      let(:task) { create_list(:task, 2, project: project) }
+      let(:task1) { create(:task, project: project) }
+      let(:task2) { create(:task) }
 
-      it { is_expected.to permit_action(:index) }
+      it { expect(scope).to include(task1) }
+      it { expect(scope).not_to include(task2) }
     end
   end
 
@@ -40,9 +44,10 @@ RSpec.describe TaskPolicy do
     end
 
     context 'with list tasks' do
-      let(:task) { create_list(:task, 2) }
+      let(:task1) { create(:task) }
+      let(:task2) { create(:task) }
 
-      it { is_expected.to forbid_action(:index) }
+      it { expect(scope).not_to include(task1) }
     end
   end
 
@@ -62,9 +67,10 @@ RSpec.describe TaskPolicy do
     end
 
     context 'with list tasks' do
-      let(:task) { create_list(:task, 2) }
+      let(:task1) { create(:task) }
+      let(:task2) { create(:task) }
 
-      it { is_expected.to forbid_action(:index) }
+      it { expect(scope).not_to include(task1) }
     end
   end
 end

@@ -103,6 +103,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   CarrierWave.configure do |config|
+    config.root = Rails.root.join('public', 'uploads')
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',

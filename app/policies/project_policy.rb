@@ -15,8 +15,10 @@ class ProjectPolicy < ApplicationPolicy
     belongs_to_user?
   end
 
-  def index?
-    user.present? && user.persisted? && user == record.first.user
+  class Scope < Scope
+    def resolve
+      scope.where(user: user)
+    end
   end
 
   private
